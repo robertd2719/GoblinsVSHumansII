@@ -1,17 +1,45 @@
 package assets;
 
 import item.Item;
+
 import java.util.ArrayList;
 
 public abstract class Actor extends Asset {
-    String name;
-    int health;
-    int attack;
-    int armorClass;
-    ArrayList<Item> itemList;
+    private String name;
+    private int health;
+    private int attack;
+    private int armorClass;
+    private ArrayList<Item> itemList;
 
     // @TODO IMPLEMENT LOGIC FOR ITEM USAGE
-    public void useItem(Item item){
+    public void useItem(Item item) {
+        System.out.println(this.name + " uses " + item.getName());
+        switch (item.getEffect()) {
+            case LIFE: {
+                switch (item.getDirection()) {
+                    case INCREASE:
+                        this.setHealth(this.getHealth() + item.getValue());
+                    case DECREASE:
+                        this.setHealth(this.getHealth() - item.getValue());
+                }
+            }
+            case ATTACK:{
+                switch(item.getDirection()){
+                    case INCREASE:
+                        this.setAttack(this.getAttack() + item.getValue());
+                    case DECREASE:
+                        this.setAttack(this.getAttack() + item.getValue());
+                }
+            }
+            case ARMOR:{
+                switch (item.getDirection()){
+                    case INCREASE:
+                        this.setArmorClass(this.getArmorClass() + item.getValue());
+                    case DECREASE:
+                        this.setArmorClass(this.getArmorClass() - item.getValue());
+                }
+            }
+        }
     }
 
     // Getters and Setters
