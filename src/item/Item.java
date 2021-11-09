@@ -1,6 +1,6 @@
 package item;
 
-public class Item {
+public abstract class Item {
     protected String name;
 
 
