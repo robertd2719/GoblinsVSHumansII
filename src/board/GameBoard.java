@@ -6,43 +6,84 @@ import assets.Asset;
 public class GameBoard {
     private int rows;
     private int columns;
-    Asset [][] board;
+    Asset[][] board;
 
-    public GameBoard(){
+    public GameBoard() {
         this.rows = 10;
         this.columns = 10;
         this.board = new Asset[rows][columns];
     }
 
-    public GameBoard(int rows, int columns){
+    public GameBoard(int rows, int columns) {
         this.rows = rows;
         this.columns = columns;
         this.board = new Asset[rows][columns];
     }
 
-    public void moveItem(Asset asset, int row,int column){
+    public void moveItemLeft(Actor item, int spaces) {
+        // move item left spaces number of elements
+        try {
+            // Is this a legal move?
+            if (item.getColumnPosition() - spaces < 0) {
+                throw new Exception();
+                // if legal move update position in board
+            } else {
+                // update items internal data on its position and update board
+                this.board[item.getRowPosition()][item.getColumnPosition()] = null;
+                item.setColumnPosition(item.getColumnPosition() - spaces);
+                this.board[item.getRowPosition()][item.getColumnPosition()] = item;
+                return;
+            }
+        } catch (Exception e) {
+            System.out.println("Sorry you can not move that many spaces left!");
+            return;
+        }
+    }
+
+    public void moveItemRight(Actor item, int spaces){
+        // move item left spaces number of elements
+        try {
+            // Is this a legal move?
+            if (item.getColumnPosition() + spaces >board.length) {
+                throw new Exception();
+                // if legal move update position in board
+            } else {
+                // update items internal data on its position and update board
+                this.board[item.getRowPosition()][item.getColumnPosition()] = null;
+                item.setColumnPosition(item.getColumnPosition() + spaces);
+                this.board[item.getRowPosition()][item.getColumnPosition()] = item;
+                return;
+            }
+        } catch (Exception e) {
+            System.out.println("Sorry you can not move that many spaces right!");
+            return;
+        }
+    }
+
+    public void moveItemUp(Actor item, int spaces){
 
     }
-    public void displayBoard(){
+
+    public void displayBoard() {
         for (int i = 0; i < this.getRows(); i++) {
             for (int j = 0; j < this.columns; j++) {
-                if (this.board[i][j] == null){
+                if (this.board[i][j] == null) {
                     System.out.print("~ ");
                 } else {
-                    System.out.print(this.board[i][j]+" ");
+                    System.out.print(this.board[i][j] + " ");
                 }
             }
             System.out.println();
         }
     }
 
-    public void placeItem(Actor item,int row, int column){
+    public void placeItem(Actor item, int row, int column) {
         this.board[row][column] = item;
-        item.setPosition(row,column);
+        item.setPosition(row, column);
         // @TODO remove below -- testing only --
-        System.out.println("New "+item.getClass()+" added.");
-        System.out.println("Coordinates of: "+item.getRowPosition()
-                +", "+item.getColumnPosition());
+        System.out.println("New " + item.getClass() + " added.");
+        System.out.println("Coordinates of: " + item.getRowPosition()
+                + ", " + item.getColumnPosition());
     }
 
     public int getRows() {
