@@ -3,6 +3,7 @@ package assets;
 import item.Item;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public abstract class Actor extends Asset {
     private String name;
@@ -48,6 +49,12 @@ public abstract class Actor extends Asset {
     public void setPosition(int row,int column) {
         this.setRowPosition(row);
         this.setColumnPosition(column);
+    }
+
+    public void attack(Actor actor){
+        int attack = new Random().nextInt(10) + 1;
+        System.out.println(actor.getName()+" attacks for: "+attack);
+        actor.setHealth(actor.getHealth() - attack);
     }
 
     // Getters and Setters

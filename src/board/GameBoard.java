@@ -89,7 +89,6 @@ public class GameBoard {
         }
     }
 
-
     public void displayBoard() {
         for (int i = 0; i < this.getRows(); i++) {
             for (int j = 0; j < this.columns; j++) {
