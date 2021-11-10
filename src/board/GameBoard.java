@@ -45,7 +45,7 @@ public class GameBoard {
                 this.board[item.getRowPosition()][item.getColumnPosition()] = item;
             }
         } catch (Exception err){
-            System.out.println("Unable to move up by that amount");
+            System.out.println("Unable to move down by that amount");
         }
     }
 
