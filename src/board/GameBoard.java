@@ -1,5 +1,6 @@
 package board;
 
+import assets.Actor;
 import assets.Asset;
 
 public class GameBoard {
@@ -19,6 +20,9 @@ public class GameBoard {
         this.board = new Asset[rows][columns];
     }
 
+    public void moveItem(Asset asset, int row,int column){
+
+    }
     public void displayBoard(){
         for (int i = 0; i < this.getRows(); i++) {
             for (int j = 0; j < this.columns; j++) {
@@ -32,9 +36,13 @@ public class GameBoard {
         }
     }
 
-
-    public void placeItem(Asset item,int row, int columns){
-        this.board[row][columns] = item;
+    public void placeItem(Actor item,int row, int column){
+        this.board[row][column] = item;
+        item.setPosition(row,column);
+        // @TODO remove below -- testing only --
+        System.out.println("New "+item.getClass()+" added.");
+        System.out.println("Coordinates of: "+item.getRowPosition()
+                +", "+item.getColumnPosition());
     }
 
     public int getRows() {

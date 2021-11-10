@@ -9,6 +9,8 @@ public abstract class Actor extends Asset {
     private int health;
     private int attack;
     private int armorClass;
+    private int rowPosition;
+    private int columnPosition;
     private ArrayList<Item> itemList;
 
     // @TODO IMPLEMENT LOGIC FOR ITEM USAGE
@@ -40,6 +42,12 @@ public abstract class Actor extends Asset {
                 }
             }
         }
+    }
+
+    // use this to inform the Actor where it is currently in the world
+    public void setPosition(int row,int column) {
+        this.setRowPosition(row);
+        this.setColumnPosition(column);
     }
 
     // Getters and Setters
@@ -81,5 +89,21 @@ public abstract class Actor extends Asset {
 
     public void setArmorClass(int armorClass) {
         this.armorClass = armorClass;
+    }
+
+    public int getRowPosition() {
+        return rowPosition;
+    }
+
+    public void setRowPosition(int rowPosition) {
+        this.rowPosition = rowPosition;
+    }
+
+    public int getColumnPosition() {
+        return columnPosition;
+    }
+
+    public void setColumnPosition(int columnPosition) {
+        this.columnPosition = columnPosition;
     }
 }
