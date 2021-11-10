@@ -20,6 +20,35 @@ public class GameBoard {
         this.board = new Asset[rows][columns];
     }
 
+    public void moveItemUp(Actor item, int spaces){
+        try{
+            if(item.getRowPosition() - spaces < 0 ){
+                throw new Exception();
+            } else {
+                this.board[item.getRowPosition()][item.getColumnPosition()] = null;
+                item.setRowPosition(item.getRowPosition() - spaces);
+                this.board[item.getRowPosition()][item.getColumnPosition()] = item;
+            }
+        } catch (Exception err){
+            System.out.println("Unable to move up by that amount");
+        }
+
+    }
+
+    public void moveItemDown(Actor item, int spaces){
+        try{
+            if(item.getRowPosition() + spaces > this.getRows()-1 ){
+                throw new Exception();
+            } else {
+                this.board[item.getRowPosition()][item.getColumnPosition()] = null;
+                item.setRowPosition(item.getRowPosition() - spaces);
+                this.board[item.getRowPosition()][item.getColumnPosition()] = item;
+            }
+        } catch (Exception err){
+            System.out.println("Unable to move down by that amount");
+        }
+    }
+
     public void moveItemLeft(Actor item, int spaces) {
         // move item left spaces number of elements
         try {
@@ -60,9 +89,6 @@ public class GameBoard {
         }
     }
 
-    public void moveItemUp(Actor item, int spaces){
-
-    }
 
     public void displayBoard() {
         for (int i = 0; i < this.getRows(); i++) {
