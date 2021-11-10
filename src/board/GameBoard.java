@@ -1,23 +1,63 @@
 package board;
-import assets.*;  // import the packages from assets to use in our gameboard implementations
 
-public abstract class GameBoard {
-    int width,height;
-    Asset [][] gameBoard;
+import assets.Asset;
 
-    public int getWidth() {
-        return width;
+public class GameBoard {
+    private int rows;
+    private int columns;
+    Asset [][] board;
+
+    public GameBoard(){
+        this.rows = 10;
+        this.columns = 10;
+        this.board = new Asset[rows][columns];
     }
 
-    public void setWidth(int width) {
-        this.width = width;
+    public GameBoard(int rows, int columns){
+        this.rows = rows;
+        this.columns = columns;
+        this.board = new Asset[rows][columns];
     }
 
-    public int getHeight() {
-        return height;
+    public void displayBoard(){
+        for (int i = 0; i < this.getRows(); i++) {
+            for (int j = 0; j < this.columns; j++) {
+                if (this.board[i][j] == null){
+                    System.out.print("~ ");
+                } else {
+                    System.out.print(this.board[i][j]+" ");
+                }
+            }
+            System.out.println();
+        }
     }
 
-    public void setHeight(int height) {
-        this.height = height;
+
+    public void placeItem(Asset item,int row, int columns){
+        this.board[row][columns] = item;
+    }
+
+    public int getRows() {
+        return rows;
+    }
+
+    public void setRows(int rows) {
+        this.rows = rows;
+    }
+
+    public int getColumns() {
+        return columns;
+    }
+
+    public void setColumns(int columns) {
+        this.columns = columns;
+    }
+
+    public Asset[][] getBoard() {
+        return board;
+    }
+
+    public void setBoard(Asset[][] board) {
+        this.board = board;
     }
 }
