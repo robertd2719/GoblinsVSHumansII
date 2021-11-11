@@ -1,12 +1,10 @@
 package item;
 
 public abstract class Item {
-    protected String name;
-
-
+    protected String name;    // The actual name of the item.
     private Effect effect;    // type of effect (Life,Attack,Armor)
-    private Direction direction;  // increase
-    private int value = 0;
+    private Direction direction;  // increase or decrease of item.
+    private int value = 0;       // Default value is (0)
 
     public String getName() {
         return name;
