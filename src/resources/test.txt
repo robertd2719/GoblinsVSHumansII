@@ -1,0 +1,9 @@
+hello
+and
+goodbye
+this
+is
+simply
+a
+test
+file

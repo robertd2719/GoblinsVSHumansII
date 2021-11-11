@@ -1,5 +1,4 @@
 package assets;
-
 import item.Item;
 
 import java.util.ArrayList;
@@ -14,7 +13,7 @@ public abstract class Actor extends Asset {
     private int columnPosition;
     private ArrayList<Item> itemList;
 
-
+    // use this
     public void useItem(Item item) {
         System.out.println(this.name + " uses " + item.getName());
         switch (item.getEffect()) {

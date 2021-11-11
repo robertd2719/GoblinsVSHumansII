@@ -10,6 +10,7 @@ public class OutDoorBoard {
         this.columns = 10;
         Asset [][] board = new Asset [rows][columns];
     }
+
     public OutDoorBoard(int rows,int columns){
         this.rows=rows;
         this.columns=columns;

@@ -1,6 +1,5 @@
 package item;
 
-
 public class HealthPotion extends Item{
     private String name;
     private Direction d;
