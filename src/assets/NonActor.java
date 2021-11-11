@@ -6,7 +6,7 @@ public class NonActor extends Asset{
     private int columnPosition;
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public void setName(String name) {

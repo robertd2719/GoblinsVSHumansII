@@ -14,7 +14,7 @@ public abstract class Actor extends Asset {
     private int columnPosition;
     private ArrayList<Item> itemList;
 
-    // @TODO IMPLEMENT LOGIC FOR ITEM USAGE
+
     public void useItem(Item item) {
         System.out.println(this.name + " uses " + item.getName());
         switch (item.getEffect()) {

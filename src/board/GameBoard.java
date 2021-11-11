@@ -118,7 +118,6 @@ public class GameBoard {
         item.setPosition(row,column);
     }
 
-
     public int getRows() {
         return rows;
     }
