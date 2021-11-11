@@ -20,20 +20,28 @@ public abstract class Actor extends Asset {
         switch (item.getEffect()) {
             case LIFE: {
                 switch (item.getDirection()) {
-                    case INCREASE:
+                    case INCREASE: {
                         this.setHealth(this.getHealth() + item.getValue());
+                        break;
+                    }
+
                     case DECREASE:
                         this.setHealth(this.getHealth() - item.getValue());
+                        break;
                 }
             }
+            break;
             case ATTACK:{
                 switch(item.getDirection()){
                     case INCREASE:
                         this.setAttack(this.getAttack() + item.getValue());
+                        break;
                     case DECREASE:
                         this.setAttack(this.getAttack() + item.getValue());
+                        break;
                 }
             }
+            break;
             case ARMOR:{
                 switch (item.getDirection()){
                     case INCREASE:
@@ -42,6 +50,7 @@ public abstract class Actor extends Asset {
                         this.setArmorClass(this.getArmorClass() - item.getValue());
                 }
             }
+            break;
         }
     }
 
