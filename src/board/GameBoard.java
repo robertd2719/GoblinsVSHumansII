@@ -111,7 +111,7 @@ public class GameBoard {
         System.out.println("Coordinates of: " + item.getRowPosition()
                 + ", " + item.getColumnPosition());
     }
-
+//  This method will allow for placement of non-Actor items in board.
     public void placeItem(NonActor item, int row, int column){
         this.board[row][column] = item;
         item.setPosition(row,column);
