@@ -1,4 +1,5 @@
 package assets;
+import item.HealthPotion;
 import item.Item;
 import java.util.ArrayList;
 
@@ -9,6 +10,9 @@ public class LootChest extends NonActor{
 
     public LootChest(){
         this.setName("Chest");
-        // we need to load the arrayList with random goodies
+
+    }
+    public static void populateChest(){
+        ArrayList<Item> randomPool = new ArrayList<>();
     }
 }

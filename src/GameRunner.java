@@ -2,6 +2,7 @@ import assets.*;
 import board.GameBoard;
 import item.AttackPotion;
 import item.HealthPotion;
+import item.Sword;
 
 public class GameRunner {
     public static void main(String[] args) {
@@ -13,19 +14,23 @@ public class GameRunner {
         board.moveItemRight(goblin,10);
         LootChest lootChest = new LootChest();
         board.placeItem(lootChest,1,5);
+
         board.displayBoard();
+        tesStats(goblin);
         goblin.useItem(new AttackPotion());
         goblin.useItem(new HealthPotion());
         human.useItem(new HealthPotion());
         human.useItem(new AttackPotion());
+        human.useItem(new Sword());
         tesStats(goblin);
         tesStats(human);
 
     }
     public static void tesStats(Actor item){
-        System.out.println("***** STATS ******");
-        System.out.println("Name: "+item.getName());
-        System.out.println("Health: "+item.getHealth());
-        System.out.println("Attack: "+item.getAttack());
+        System.out.println("\n***** STATS ******");
+        System.out.println("Name: \t"+item.getName());
+        System.out.println("Health: \t"+item.getHealth());
+        System.out.println("Attack: \t"+item.getAttack());
+        System.out.println("***** + ******");
     }
 }
