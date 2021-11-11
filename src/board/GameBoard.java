@@ -103,6 +103,7 @@ public class GameBoard {
         }
     }
 
+    // This method will allow for placement of actor items
     public void placeActor(Actor item, int row, int column) {
         this.board[row][column] = item;
         item.setPosition(row, column);
@@ -116,6 +117,7 @@ public class GameBoard {
         this.board[row][column] = item;
         item.setPosition(row,column);
     }
+
 
     public int getRows() {
         return rows;
