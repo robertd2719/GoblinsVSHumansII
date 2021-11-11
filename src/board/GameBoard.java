@@ -2,6 +2,7 @@ package board;
 
 import assets.Actor;
 import assets.Asset;
+import assets.NonActor;
 
 public class GameBoard {
     private int rows;
@@ -41,7 +42,7 @@ public class GameBoard {
                 throw new Exception();
             } else {
                 this.board[item.getRowPosition()][item.getColumnPosition()] = null;
-                item.setRowPosition(item.getRowPosition() - spaces);
+                item.setRowPosition(item.getRowPosition() + spaces);
                 this.board[item.getRowPosition()][item.getColumnPosition()] = item;
             }
         } catch (Exception err){
@@ -102,13 +103,18 @@ public class GameBoard {
         }
     }
 
-    public void placeItem(Actor item, int row, int column) {
+    public void placeActor(Actor item, int row, int column) {
         this.board[row][column] = item;
         item.setPosition(row, column);
         // @TODO remove below -- testing only --
         System.out.println("New " + item.getClass() + " added.");
         System.out.println("Coordinates of: " + item.getRowPosition()
                 + ", " + item.getColumnPosition());
+    }
+
+    public void placeItem(NonActor item, int row, int column){
+        this.board[row][column] = item;
+        item.setPosition(row,column);
     }
 
     public int getRows() {
