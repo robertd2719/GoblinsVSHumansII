@@ -11,6 +11,7 @@ public abstract class Actor extends Asset {
     private int armorClass;
     private int rowPosition;
     private int columnPosition;
+    private int isAlive;
     private ArrayList<Item> itemList;
 
     // use this
@@ -61,7 +62,7 @@ public abstract class Actor extends Asset {
 
     public void attack(Actor actor){
         int attack = new Random().nextInt(10) + 1;
-        System.out.println(actor.getName()+" attacks for: "+attack);
+        System.out.println(this.getName()+" attacks for: "+attack);
         actor.setHealth(actor.getHealth() - attack);
     }
 
@@ -120,5 +121,9 @@ public abstract class Actor extends Asset {
 
     public void setColumnPosition(int columnPosition) {
         this.columnPosition = columnPosition;
+    }
+
+    public int getIsAlive() {
+        return isAlive;
     }
 }
