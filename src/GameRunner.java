@@ -11,7 +11,6 @@ public class GameRunner {
         board.placeActor(goblin,3,3);
         board.placeActor(human, 5,5);
         tesStats(human);
-        human.useItem(new Cape());
         tesStats(human);
 
 

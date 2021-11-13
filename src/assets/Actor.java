@@ -63,8 +63,12 @@ public abstract class Actor extends Asset {
 
     public void attack(Actor actor){
         int attack = new Random().nextInt(10) + 1;
+        int dmg = attack - actor.getArmorClass();
+        dmg = (dmg < 0 ) ? 0 : dmg;
         System.out.println(this.getName()+" attacks for: "+attack);
-        actor.setHealth(actor.getHealth() - attack);
+        System.out.println(this.getName()+" causing dmg: "+dmg);
+        actor.setHealth(actor.getHealth() - dmg);
+        System.out.println(actor.getName()+" health: "+actor.getHealth());
     }
 
     // Getters and Setters
