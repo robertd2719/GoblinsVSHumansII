@@ -12,6 +12,9 @@ public class GameRunner {
         board.placeActor(human, 5,5);
         tesStats(human);
         tesStats(human);
+        human.pickUpItem(new HealthPotion());
+        tesStats(human);
+        human.showInventory();
 
 
     }
