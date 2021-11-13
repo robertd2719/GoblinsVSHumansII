@@ -8,7 +8,9 @@ public class Goblin extends Actor {
         this.setName("Goblin");
         this.setAttack(5);
         this.setHealth(100);
+        this.setArmorClass(0);
     }
+
 
     @Override
     public String toString() {

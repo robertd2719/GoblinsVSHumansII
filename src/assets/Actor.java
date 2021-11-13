@@ -24,7 +24,6 @@ public abstract class Actor extends Asset {
                         this.setHealth(this.getHealth() + item.getValue());
                         break;
                     }
-
                     case DECREASE:
                         this.setHealth(this.getHealth() - item.getValue());
                         break;
@@ -37,7 +36,7 @@ public abstract class Actor extends Asset {
                         this.setAttack(this.getAttack() + item.getValue());
                         break;
                     case DECREASE:
-                        this.setAttack(this.getAttack() + item.getValue());
+                        this.setAttack(this.getAttack() - item.getValue());
                         break;
                 }
             }
@@ -46,8 +45,10 @@ public abstract class Actor extends Asset {
                 switch (item.getDirection()){
                     case INCREASE:
                         this.setArmorClass(this.getArmorClass() + item.getValue());
+                        break;
                     case DECREASE:
                         this.setArmorClass(this.getArmorClass() - item.getValue());
+                        break;
                 }
             }
             break;

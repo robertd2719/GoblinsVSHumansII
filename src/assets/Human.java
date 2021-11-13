@@ -7,6 +7,7 @@ public class Human extends Actor {
         this.setName("Human");
         this.setAttack(10);  // base attack
         this.setHealth(100); // base health
+        this.setArmorClass(0);
     }
     @Override
     public String toString() {

@@ -1,8 +1,6 @@
 import assets.*;
 import board.GameBoard;
-import item.AttackPotion;
-import item.HealthPotion;
-import item.Sword;
+import item.*;
 import board.MoveDirection;
 
 public class GameRunner {
@@ -12,7 +10,9 @@ public class GameRunner {
         GameBoard board = new GameBoard(15,20);
         board.placeActor(goblin,3,3);
         board.placeActor(human, 5,5);
-        defaultMenu();
+        tesStats(human);
+        human.useItem(new Cape());
+        tesStats(human);
 
 
     }
@@ -30,6 +30,7 @@ public class GameRunner {
         System.out.println("Name: \t\t"+item.getName());
         System.out.println("Health: \t"+item.getHealth());
         System.out.println("Attack: \t"+item.getAttack());
+        System.out.println("Armor: \t"+item.getArmorClass());
         System.out.println("***** + ******");
     }
 
