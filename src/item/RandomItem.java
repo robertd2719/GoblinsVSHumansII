@@ -8,8 +8,19 @@ public class RandomItem {
     ArrayList<Item> randItems = new ArrayList<>();
 
     RandomItem(){
-        randItems.add(new HealthPotion());
-        randItems.add(new AttackPotion());
-        randItems.add(new Sword());
+        // Sword, LifeRing, AttackPotion, Cape, HealthPotion,
+        // Shield
+        this.randItems.add(new HealthPotion());
+        this.randItems.add(new AttackPotion());
+        this.randItems.add(new Sword());
+        this.randItems.add(new Shield());
+        this.randItems.add(new Cape());
+        this.randItems.add(new LifeRing());
+    }
+    public Item randomItem(){
+        int chosen_value = rand.nextInt(this.randItems.size());
+        Item itemChosen = this.randItems.get(chosen_value);
+        System.out.println("New item: " + itemChosen.getName());
+        return itemChosen;
     }
 }
