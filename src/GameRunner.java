@@ -8,13 +8,16 @@ public class GameRunner {
         Human human = new Human();
         Goblin goblin = new Goblin();
         GameBoard board = new GameBoard(15,20);
-        board.placeActor(goblin,3,3);
-        board.placeActor(human, 5,5);
-        tesStats(human);
-        tesStats(human);
-        human.pickUpItem(new HealthPotion());
-        tesStats(human);
-        human.showInventory();
+        board.placeActor(human,1,1);
+        board.placeActor(goblin,5,5);
+        board.displayBoard();
+        board.trackEnemy(goblin,human);
+        board.displayBoard();
+        board.trackEnemy(goblin,human);
+        board.displayBoard();
+        board.trackEnemy(goblin,human);
+        board.displayBoard();
+
 
 
     }

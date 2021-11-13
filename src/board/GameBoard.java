@@ -21,31 +21,31 @@ public class GameBoard {
         this.board = new Asset[rows][columns];
     }
 
-    public void moveItemUp(Actor item, int spaces){
-        try{
-            if(item.getRowPosition() - spaces < 0 ){
+    public void moveItemUp(Actor item, int spaces) {
+        try {
+            if (item.getRowPosition() - spaces < 0) {
                 throw new Exception();
             } else {
                 this.board[item.getRowPosition()][item.getColumnPosition()] = null;
                 item.setRowPosition(item.getRowPosition() - spaces);
                 this.board[item.getRowPosition()][item.getColumnPosition()] = item;
             }
-        } catch (Exception err){
+        } catch (Exception err) {
             System.out.println("Unable to move up by that amount");
         }
 
     }
 
-    public void moveItemDown(Actor item, int spaces){
-        try{
-            if(item.getRowPosition() + spaces > this.getRows()-1 ){
+    public void moveItemDown(Actor item, int spaces) {
+        try {
+            if (item.getRowPosition() + spaces > this.getRows() - 1) {
                 throw new Exception();
             } else {
                 this.board[item.getRowPosition()][item.getColumnPosition()] = null;
                 item.setRowPosition(item.getRowPosition() + spaces);
                 this.board[item.getRowPosition()][item.getColumnPosition()] = item;
             }
-        } catch (Exception err){
+        } catch (Exception err) {
             System.out.println("Unable to move down by that amount");
         }
     }
@@ -70,11 +70,11 @@ public class GameBoard {
         }
     }
 
-    public void moveItemRight(Actor item, int spaces){
+    public void moveItemRight(Actor item, int spaces) {
         // move item left spaces number of elements
         try {
             // Is this a legal move?
-            if (item.getColumnPosition() + spaces >board.length) {
+            if (item.getColumnPosition() + spaces > board.length) {
                 throw new Exception();
                 // if legal move update position in board
             } else {
@@ -90,6 +90,29 @@ public class GameBoard {
         }
     }
 
+    public void trackEnemy(Actor actor, Actor target) {
+        int actorRow = actor.getRowPosition();
+        int actorCol = actor.getColumnPosition();
+        int targetRow = target.getRowPosition();
+        int targetCol = target.getColumnPosition();
+        // move goblin horizontally first
+        if (actorRow > targetRow) {
+            this.moveItemUp(actor, 1);
+            // @TODO if canAttack == true; trigger attack routine
+        }
+        if (actorRow < targetRow) {
+            this.moveItemDown(actor,1);
+            // @TODO if canAttack == true; trigger attack routine
+        }
+        if (actorCol< targetCol) {
+            this.moveItemRight(actor,1);
+        }
+        if (actorCol > targetCol) {
+            this.moveItemLeft(actor,1);
+        }
+
+    }
+
     public void displayBoard() {
         for (int i = 0; i < this.getRows(); i++) {
             for (int j = 0; j < this.columns; j++) {
@@ -101,6 +124,7 @@ public class GameBoard {
             }
             System.out.println();
         }
+        System.out.println();
     }
 
     // This method will allow for placement of actor items
@@ -112,10 +136,11 @@ public class GameBoard {
         System.out.println("Coordinates of: " + item.getRowPosition()
                 + ", " + item.getColumnPosition());
     }
-//  This method will allow for placement of non-Actor items in board.
-    public void placeItem(NonActor item, int row, int column){
+
+    //  This method will allow for placement of non-Actor items in board.
+    public void placeItem(NonActor item, int row, int column) {
         this.board[row][column] = item;
-        item.setPosition(row,column);
+        item.setPosition(row, column);
     }
 
     public int getRows() {

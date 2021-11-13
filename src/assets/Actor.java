@@ -15,7 +15,7 @@ public abstract class Actor extends Asset {
     private int isAlive;
     private ArrayList<Item> itemList = new ArrayList<>();
 
-    // use this
+    // items are going to use this to track items
     public void useItem(Item item) {
         System.out.println(this.name + " uses " + item.getName());
         switch (item.getEffect()) {
@@ -54,6 +54,24 @@ public abstract class Actor extends Asset {
             }
             break;
         }
+    }
+
+    // proximity detector for items to gauge their relative distance.
+    public boolean canAttack(Actor target){
+        int currentRow = this.getRowPosition();
+        int currentCol = this.getColumnPosition();
+        int targetRow = target.getRowPosition();
+        int targetCol = target.getColumnPosition();
+        if ((currentRow + 1 == targetRow) || (currentRow -1 == targetRow)){
+            if (currentCol == targetCol){
+                return true;
+            }
+        }if ((currentCol + 1 == targetCol) || (currentCol -1 == targetRow)){
+            if (currentRow == targetRow){
+                return true;
+            }
+        }
+        return false;
     }
 
     // use this to inform the Actor where it is currently in the world
