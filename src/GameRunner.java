@@ -2,18 +2,16 @@ import assets.Actor;
 import assets.Goblin;
 import assets.Human;
 import board.GameBoard;
+import item.LifeRing;
 
 import java.util.Scanner;
 
 public class GameRunner {
     public static void main(String[] args) {
-//        MainLoop();
-        GameBoard board = new GameBoard(15, 20);
+        // create the player and give them some items to use along their adventure
         Human human = new Human();
-        Goblin goblin = new Goblin();
-        board.placeActor(human, 1, 1);
-        board.placeActor(goblin, 5, 5);
-        welcomeBanner();
+
+        human = runStageOne();
 
     }
 
@@ -33,6 +31,13 @@ public class GameRunner {
         System.out.println("Attack: \t" + item.getAttack());
         System.out.println("Armor: \t" + item.getArmorClass());
         System.out.println("***** + ******");
+    }
+
+    public static Human runStageOne(){
+        MainLoop();
+
+        // @TODO change below to reflect actual human that is being returned.
+        return new Human();
     }
 
     public static void MainLoop() {
@@ -64,6 +69,7 @@ public class GameRunner {
                 playerMoveSelection();
                 reply = getPlayerInput();
                 var direction = Integer.parseInt(reply);
+                // @TODO after each player move check permission for attack state with main game.
                 switch (direction) {
                     case 1:
                         board.moveItemUp(human, 1);
@@ -84,10 +90,8 @@ public class GameRunner {
             }
             // Player can select from a range of items.
             if (Integer.parseInt(reply) == 2) {
-                System.out.println("What item would you like to use: ");
-                // @TODO list inventory here and implement a procuedure to remove items.
-                reply = getPlayerInput();
-                System.out.println(reply);
+               human.useItemFromInventory();
+                continue;
             }
 
             // IF legal the player
