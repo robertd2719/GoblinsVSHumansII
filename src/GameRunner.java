@@ -39,7 +39,48 @@ public class GameRunner {
             displayOptions();
             var reply = getPlayerInput();
             System.out.println("player chose: " + reply);
+            if (Integer.parseInt(reply) == 1){
+                playerMoveSelection();
+                reply = getPlayerInput();
+                var direction = Integer.parseInt(reply);
+                switch (direction){
+                    case 1:
+                        board.moveItemUp(human,1);
+                        break;
+                    case 2:
+                        board.moveItemRight(human, 1);
+                        break;
+                    case 3:
+                        board.moveItemDown(human,1);
+                        break;
+                    case 4:
+                        board.moveItemLeft(human, 1);
+                        break;
+                }
+                board.displayBoard();
+                continue;
+
+            }
+            if (Integer.parseInt(reply)== 2){
+                System.out.println("Please enter new selection");
+                reply = getPlayerInput();
+                System.out.println(reply);
+            }
+
+            if(Integer.parseInt(reply) == 3){
+                System.out.println("Please enter new selection");
+                reply = getPlayerInput();
+                System.out.println(reply);
+            }
         }
+    }
+
+    public static void playerMoveSelection(){
+        System.out.println("What direction would you like to move?:");
+        System.out.println("1. Up");
+        System.out.println("2. Right");
+        System.out.println("3. Down");
+        System.out.println("4. Right");
     }
 
     public static String getPlayerInput() {
