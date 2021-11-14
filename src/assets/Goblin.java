@@ -6,7 +6,7 @@ public class Goblin extends Actor {
         // Goblin base constructor
         System.out.println("New Goblin was created!!!");
         this.setName("Goblin");
-        this.setAttack(5);
+        this.setAttack(3);
         this.setHealth(100);
         this.setArmorClass(0);
     }

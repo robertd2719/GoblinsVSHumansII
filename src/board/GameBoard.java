@@ -98,17 +98,19 @@ public class GameBoard {
         // move goblin horizontally first
         if (actorRow > targetRow) {
             this.moveItemUp(actor, 1);
-            // @TODO if canAttack == true; trigger attack routine
+            // @TODO if canAttack == true; trigger attack routine.
         }
         if (actorRow < targetRow) {
             this.moveItemDown(actor,1);
-            // @TODO if canAttack == true; trigger attack routine
+            // @TODO if canAttack == true; trigger attack routine.
         }
         if (actorCol< targetCol) {
             this.moveItemRight(actor,1);
+            // @TODO if canAttack == true; trigger attack routine.
         }
         if (actorCol > targetCol) {
             this.moveItemLeft(actor,1);
+            // @TODO if canAttack == true; trigger attack routine.
         }
 
     }

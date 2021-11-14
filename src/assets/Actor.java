@@ -57,17 +57,18 @@ public abstract class Actor extends Asset {
     }
 
     // proximity detector for items to gauge their relative distance.
-    public boolean canAttack(Actor target){
+    public boolean canAttack(Actor target) {
         int currentRow = this.getRowPosition();
         int currentCol = this.getColumnPosition();
         int targetRow = target.getRowPosition();
         int targetCol = target.getColumnPosition();
-        if ((currentRow + 1 == targetRow) || (currentRow -1 == targetRow)){
-            if (currentCol == targetCol){
+        if ((currentRow + 1 == targetRow) || (currentRow - 1 == targetRow)) {
+            if (currentCol == targetCol) {
                 return true;
             }
-        }if ((currentCol + 1 == targetCol) || (currentCol -1 == targetRow)){
-            if (currentRow == targetRow){
+        }
+        if ((currentCol + 1 == targetCol) || (currentCol - 1 == targetRow)) {
+            if (currentRow == targetRow) {
                 return true;
             }
         }
@@ -80,14 +81,43 @@ public abstract class Actor extends Asset {
         this.setColumnPosition(column);
     }
 
-    public void attack(Actor actor) {
-        int attack = new Random().nextInt(10) + 1;
-        int dmg = attack - actor.getArmorClass();
-        dmg = (dmg < 0) ? 0 : dmg;
-        System.out.println(this.getName() + " attacks for: " + attack);
-        System.out.println(this.getName() + " causing dmg: " + dmg);
-        actor.setHealth(actor.getHealth() - dmg);
-        System.out.println(actor.getName() + " health: " + actor.getHealth());
+    // @TODO will need to pipe the return type back to the gameboard for removal if one
+    // of the two actors dies and update the winstate of the game.
+    public Actor attack(Actor actor) {
+        // While one player's life is greater than the other
+        // keep attacking the other player
+        while (actor.getHealth() > 0 && this.getHealth() > 0) {
+            // Phase (1) this attacks actor
+            int attack = new Random().nextInt(this.getAttack()) + 1;
+            int dmg = attack - actor.getArmorClass();
+            // compute dmg vs. armor class to get total dmg done.
+            dmg = (dmg < 0) ? 0 : dmg;
+            System.out.println(this.getName() + " attacks for: " + attack);
+            System.out.println(this.getName() + " causing dmg: " + dmg);
+            actor.setHealth(actor.getHealth() - dmg);
+            System.out.println(actor.getName() + " health: " + actor.getHealth());
+            if (actor.getHealth()<=0){
+                System.out.println(this.getName()+" wins!");
+                return actor;
+            }
+            System.out.println("----------");
+
+            // Phase(2) actor attacks this.
+            attack = new Random().nextInt(actor.getAttack()) + 1;
+            dmg = attack - this.getArmorClass();
+            // compute dmg vs. armor class to get total dmg done.
+            dmg = (dmg < 0) ? 0 : dmg;
+            System.out.println(actor.getName() + " attacks for: " + attack);
+            System.out.println(actor.getName() + " causing dmg: " + dmg);
+            this.setHealth(this.getHealth() - dmg);
+            System.out.println(this.getName() + " health: " + this.getHealth());
+            if (this.getHealth()<=0){
+                System.out.println(actor.getName()+" wins!");
+                return this;
+            }
+            System.out.println("----------");
+        }
+        return null;
     }
 
     // Getters and Setters

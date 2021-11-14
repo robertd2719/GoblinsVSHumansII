@@ -17,6 +17,7 @@ public class GameRunner {
         board.displayBoard();
         board.trackEnemy(goblin,human);
         board.displayBoard();
+        goblin.attack(human);
 
 
 
