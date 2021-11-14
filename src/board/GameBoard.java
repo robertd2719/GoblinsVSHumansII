@@ -180,5 +180,6 @@ public class GameBoard {
     public void removeItem(Actor actor){
         // remove item from the gameboard
         this.board[actor.getRowPosition()][actor.getColumnPosition()] = null;
+
     }
 }

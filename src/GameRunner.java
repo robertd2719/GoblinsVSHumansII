@@ -16,7 +16,8 @@ public class GameRunner {
         human.pickUpItem(new LifeRing());
         human.pickUpItem(new Sword());
         human.pickUpItem(new Shield());
-        human = runStageOne(human);
+        human = (Human) runStageOne(human);
+        human = (Human) runBossStage(human);
     }
 
     public static void displayMenu() {
@@ -37,15 +38,23 @@ public class GameRunner {
         System.out.println("***** + ******");
     }
 
-    public static Human runStageOne(Human human){
+    public static Actor runStageOne(Human human) {
         GameBoard board = new GameBoard(15, 20);
-        MainLoop(human, board);
+        human = (Human) MainLoop(human, board);
 
-        // @TODO change below to reflect actual human that is being returned.
-        return new Human();
+
+        return human;
     }
 
-    public static void MainLoop(Human human, GameBoard board) {
+    public static Actor runBossStage(Human human) {
+        GameBoard board2 = new GameBoard(15, 10);
+        human = (Human) MainLoop(human, board2);
+
+        return human;
+    }
+
+
+    public static Actor MainLoop(Human human, GameBoard board) {
         Goblin goblin = new Goblin();
         board.placeActor(human, 1, 1);
         board.placeActor(goblin, 5, 5);
@@ -92,11 +101,14 @@ public class GameRunner {
                 board.displayBoard();
                 if (goblin.getHealth() <= 0) {
                     board.removeItem(goblin);
+                    board.placeItem(new Chest(), goblin.getRowPosition(), goblin.getColumnPosition());
                     // Spawn a random chest on the board.
                     // populate the chest with a random item
                     System.out.println("Congratulations you have found a chest");
-                    board.placeItem(new Chest(), 5, 5);
-                    // @TODO  player to proceed to next map
+                    System.out.println("**************************************");
+                    System.out.println("Moving on to next stage...............");
+                    return human;
+                    // @TODO player to proceed to next map
                     // @TODO return human and begin next encounter sequence
                     // @TODO if this is last iteration, player wins
                     // @****maybe check to see if high score!!!!********
@@ -126,7 +138,7 @@ public class GameRunner {
         System.out.println("1. Up");
         System.out.println("2. Right");
         System.out.println("3. Down");
-        System.out.println("4. Right");
+        System.out.println("4. Left");
     }
 
     public static String getPlayerInput() {
