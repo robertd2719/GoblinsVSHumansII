@@ -4,6 +4,7 @@ import item.Item;
 
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
 
 public abstract class Actor extends Asset {
     private String name;
@@ -199,6 +200,16 @@ public abstract class Actor extends Asset {
             System.out.println(i + 1 + " " + name + " +" + value + " " + effect);
         }
         System.out.println("\n Which item would you like to use (1-" + itemList.size() + ")");
+        var scanner = new Scanner(System.in);
+        try{
+            var input = scanner.nextInt();
+            var item = this.itemList.get(input-1);
+            this.useItem(item);
+            this.itemList.remove(input-1);
+        } catch(Exception err){
+            System.out.println("Sorry, something went wrong");
+            System.out.println(err.getMessage());
+        }
     }
 
     public int getIsAlive() {

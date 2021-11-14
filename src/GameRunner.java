@@ -18,7 +18,9 @@ public class GameRunner {
         human.pickUpItem(new HealthPotion());
         human.pickUpItem(new Sword());
         human.pickUpItem(new HealthPotion());
+        tesStats(human);
         human.useItemFromInventory();
+        tesStats(human);
 
     }
 
