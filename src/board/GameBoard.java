@@ -134,9 +134,9 @@ public class GameBoard {
         this.board[row][column] = item;
         item.setPosition(row, column);
         // @TODO remove below -- testing only --
-        System.out.println("New " + item.getClass() + " added.");
-        System.out.println("Coordinates of: " + item.getRowPosition()
-                + ", " + item.getColumnPosition());
+//        System.out.println("New " + item.getClass() + " added.");
+//        System.out.println("Coordinates of: " + item.getRowPosition()
+//                + ", " + item.getColumnPosition());
     }
 
     //  This method will allow for placement of non-Actor items in board.

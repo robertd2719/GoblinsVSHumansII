@@ -2,8 +2,6 @@ import assets.Actor;
 import assets.Goblin;
 import assets.Human;
 import board.GameBoard;
-import item.HealthPotion;
-import item.Sword;
 
 import java.util.Scanner;
 
@@ -15,12 +13,7 @@ public class GameRunner {
         Goblin goblin = new Goblin();
         board.placeActor(human, 1, 1);
         board.placeActor(goblin, 5, 5);
-        human.pickUpItem(new HealthPotion());
-        human.pickUpItem(new Sword());
-        human.pickUpItem(new HealthPotion());
-        tesStats(human);
-        human.useItemFromInventory();
-        tesStats(human);
+        welcomeBanner();
 
     }
 
@@ -131,6 +124,12 @@ public class GameRunner {
         System.out.println("(1) Move");
         System.out.println("(2) Use item");
         System.out.println("(3) Attack");
+    }
+
+    public static void welcomeBanner() {
+        System.out.println("--------------------------------");
+        System.out.println("Welcome to Humans vs. Goblins II");
+        System.out.println("--------------------------------");
     }
 
 
