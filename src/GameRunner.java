@@ -17,7 +17,15 @@ public class GameRunner {
         board.displayBoard();
         board.trackEnemy(goblin,human);
         board.displayBoard();
-        goblin.attack(human);
+        // Attack routine will trigger
+        Actor died = goblin.attack(human);
+        if (died.getName().equals("Human")){
+            System.out.println("You Died Game Over");
+            board.removeItem(died);
+        }
+        else if (died.getName().equals("Goblin"))
+            board.removeItem(died);
+        board.displayBoard();
 
 
 
