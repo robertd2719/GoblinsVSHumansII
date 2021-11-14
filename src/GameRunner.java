@@ -3,6 +3,8 @@ import assets.Goblin;
 import assets.Human;
 import board.GameBoard;
 import item.LifeRing;
+import item.Shield;
+import item.Sword;
 
 import java.util.Scanner;
 
@@ -10,9 +12,10 @@ public class GameRunner {
     public static void main(String[] args) {
         // create the player and give them some items to use along their adventure
         Human human = new Human();
-
-        human = runStageOne();
-
+        human.pickUpItem(new LifeRing());
+        human.pickUpItem(new Sword());
+        human.pickUpItem(new Shield());
+        human = runStageOne(human);
     }
 
     public static void displayMenu() {
@@ -33,15 +36,14 @@ public class GameRunner {
         System.out.println("***** + ******");
     }
 
-    public static Human runStageOne(){
-        MainLoop();
+    public static Human runStageOne(Human human){
+        MainLoop(human);
 
         // @TODO change below to reflect actual human that is being returned.
         return new Human();
     }
 
-    public static void MainLoop() {
-        Human human = new Human();
+    public static void MainLoop(Human human) {
         Goblin goblin = new Goblin();
         GameBoard board = new GameBoard(15, 20);
         board.placeActor(human, 1, 1);

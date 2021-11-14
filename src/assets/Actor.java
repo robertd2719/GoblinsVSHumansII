@@ -195,13 +195,18 @@ public abstract class Actor extends Asset {
     }
 
     public void useItemFromInventory() {
+        // If there are no items in inventory, return inventory is empty
+        if (this.itemList.isEmpty()){
+            System.out.println("\nThere is nothing left in your inventory");
+            return;
+        }
         System.out.println("\n\t------Inventory-------");
         for (int i = 0; i < this.itemList.size(); i++) {
             var size = itemList.size();
             var name = itemList.get(i).getName();
             var value = itemList.get(i).getValue();
             var effect = itemList.get(i).getEffect();
-            System.out.println("\t"+i + 1 + " " + name + " +" + value + " " + effect);
+            System.out.println("\t"+ (i + 1) + " " + name + " +" + value + " " + effect);
         }
         System.out.println("\n Which item would you like to use (1-" + itemList.size() + ")");
         var scanner = new Scanner(System.in);
