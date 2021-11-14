@@ -42,7 +42,6 @@ public class GameRunner {
         GameBoard board = new GameBoard(15, 20);
         human = (Human) MainLoop(human, board);
 
-
         return human;
     }
 
@@ -52,7 +51,6 @@ public class GameRunner {
 
         return human;
     }
-
 
     public static Actor MainLoop(Human human, GameBoard board) {
         Goblin goblin = new Goblin();
