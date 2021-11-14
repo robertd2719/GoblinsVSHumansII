@@ -81,8 +81,7 @@ public abstract class Actor extends Asset {
         this.setColumnPosition(column);
     }
 
-    // @TODO will need to pipe the return type back to the gameboard for removal if one
-    // of the two actors dies and update the winstate of the game.
+    // @TODO finished -- returns 'dead' player.
     public Actor attack(Actor actor) {
         // While one player's life is greater than the other
         // keep attacking the other player
@@ -96,8 +95,8 @@ public abstract class Actor extends Asset {
             System.out.println(this.getName() + " causing dmg: " + dmg);
             actor.setHealth(actor.getHealth() - dmg);
             System.out.println(actor.getName() + " health: " + actor.getHealth());
-            if (actor.getHealth()<=0){
-                System.out.println(this.getName()+" wins!");
+            if (actor.getHealth() <= 0) {
+                System.out.println(this.getName() + " wins!");
                 return actor;
             }
             System.out.println("----------");
@@ -111,8 +110,8 @@ public abstract class Actor extends Asset {
             System.out.println(actor.getName() + " causing dmg: " + dmg);
             this.setHealth(this.getHealth() - dmg);
             System.out.println(this.getName() + " health: " + this.getHealth());
-            if (this.getHealth()<=0){
-                System.out.println(actor.getName()+" wins!");
+            if (this.getHealth() <= 0) {
+                System.out.println(actor.getName() + " wins!");
                 return this;
             }
             System.out.println("----------");
@@ -182,12 +181,24 @@ public abstract class Actor extends Asset {
         this.itemList.add(item);
     }
 
+    // @TODO we may abe able to get rid of this.
     public void showInventory() {
         System.out.println("\t\tCurrent Inventory");
         for (Item item : this.itemList) {
-            System.out.println("Item: " + item.getName() + " Effect: " +
-                    item.getEffect() + " value: " + item.getValue());
+            System.out.println(item.getName() + " +" + item.getValue() + " " + item.getEffect());
         }
+    }
+
+    public void useItemFromInventory() {
+        System.out.println("\n ------Inventory-------");
+        for (int i = 0; i < this.itemList.size(); i++) {
+            var size = itemList.size();
+            var name = itemList.get(i).getName();
+            var value = itemList.get(i).getValue();
+            var effect = itemList.get(i).getEffect();
+            System.out.println(i + 1 + " " + name + " +" + value + " " + effect);
+        }
+        System.out.println("\n Which item would you like to use (1-" + itemList.size() + ")");
     }
 
     public int getIsAlive() {
