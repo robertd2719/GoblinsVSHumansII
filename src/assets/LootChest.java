@@ -12,6 +12,9 @@ public class LootChest extends NonActor{
         this.setName("Chest");
 
     }
+    public String toString() {
+        return "\uD83E\uDDF3";
+    }
     public static void populateChest(){
         ArrayList<Item> randomPool = new ArrayList<>();
     }

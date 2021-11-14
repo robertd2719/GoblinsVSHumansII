@@ -1,0 +1,5 @@
+package emojis;
+
+public enum Emojis {
+    GOBLIN, HUMAN, LOOT, POTION, SWORD, TREE, SKULL, HEART, FLEE, RING, SHIELD, WATER, BOSS, FAIRY, MOUNTAIN, SQUARE
+}

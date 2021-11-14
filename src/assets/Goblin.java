@@ -12,6 +12,6 @@ public class Goblin extends Actor {
 
     @Override
     public String toString() {
-        return Character.toString(this.getName().charAt(0));
+        return "\uD83D\uDC79";
     }
 }
