@@ -18,7 +18,9 @@ public abstract class Actor extends Asset {
 
     // items are going to use this to track items
     public void useItem(Item item) {
+        System.out.println();
         System.out.println(this.name + " uses " + item.getName());
+        System.out.println();
         switch (item.getEffect()) {
             case LIFE: {
                 switch (item.getDirection()) {
@@ -62,14 +64,18 @@ public abstract class Actor extends Asset {
         int currentRow = this.getRowPosition();
         int currentCol = this.getColumnPosition();
         int targetRow = target.getRowPosition();
+        System.out.println("Goblin " + this.getRowPosition() + " ," + this.getColumnPosition());
+        System.out.println("Goblin " + this.getRowPosition() + " ," + this.getColumnPosition());
         int targetCol = target.getColumnPosition();
         if ((currentRow + 1 == targetRow) || (currentRow - 1 == targetRow)) {
             if (currentCol == targetCol) {
+                System.out.println("Player Detected up/down ...can attack");
                 return true;
             }
         }
-        if ((currentCol + 1 == targetCol) || (currentCol - 1 == targetRow)) {
+        if ((currentCol + 1 == targetCol) || (currentCol - 1 == targetCol)) {
             if (currentRow == targetRow) {
+                System.out.println("Player Detected left/right ...can attack");
                 return true;
             }
         }

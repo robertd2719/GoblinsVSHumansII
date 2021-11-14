@@ -37,15 +37,15 @@ public class GameRunner {
     }
 
     public static Human runStageOne(Human human){
-        MainLoop(human);
+        GameBoard board = new GameBoard(15, 20);
+        MainLoop(human, board);
 
         // @TODO change below to reflect actual human that is being returned.
         return new Human();
     }
 
-    public static void MainLoop(Human human) {
+    public static void MainLoop(Human human, GameBoard board) {
         Goblin goblin = new Goblin();
-        GameBoard board = new GameBoard(15, 20);
         board.placeActor(human, 1, 1);
         board.placeActor(goblin, 5, 5);
         board.displayBoard();
@@ -68,6 +68,7 @@ public class GameRunner {
             var reply = getPlayerInput();
             System.out.println("player chose: " + reply);
             if (Integer.parseInt(reply) == 1) {
+                board.displayBoard();
                 playerMoveSelection();
                 reply = getPlayerInput();
                 var direction = Integer.parseInt(reply);
@@ -85,6 +86,18 @@ public class GameRunner {
                     case 4:
                         board.moveItemLeft(human, 1);
                         break;
+                }
+                board.trackEnemy(goblin, human);
+                board.displayBoard();
+                if (goblin.getHealth() <= 0) {
+                    board.removeItem(goblin);
+                    // @TODO Spawn a random chest on the board.
+                    // @TODO populate the chest with a random item
+                    // @TODO  player to proceed to next map
+                    // @TODO return human and begin next encounter sequence
+                    // @TODO if this is last iteration, player wins
+                    // @****maybe check to see if high score!!!!********
+
                 }
                 board.displayBoard();
                 continue;
