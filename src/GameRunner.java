@@ -1,4 +1,5 @@
 import assets.Actor;
+import assets.Chest;
 import assets.Goblin;
 import assets.Human;
 import board.GameBoard;
@@ -91,8 +92,10 @@ public class GameRunner {
                 board.displayBoard();
                 if (goblin.getHealth() <= 0) {
                     board.removeItem(goblin);
-                    // @TODO Spawn a random chest on the board.
-                    // @TODO populate the chest with a random item
+                    // Spawn a random chest on the board.
+                    // populate the chest with a random item
+                    System.out.println("Congratulations you have found a chest");
+                    board.placeItem(new Chest(), 5, 5);
                     // @TODO  player to proceed to next map
                     // @TODO return human and begin next encounter sequence
                     // @TODO if this is last iteration, player wins

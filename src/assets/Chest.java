@@ -1,6 +1,8 @@
 package assets;
-import item.HealthPotion;
+
 import item.Item;
+import item.RandomItem;
+
 import java.util.ArrayList;
 
 public class Chest extends NonActor{
@@ -8,11 +10,16 @@ public class Chest extends NonActor{
     String name;
     ArrayList<Item> ChestInventory = new ArrayList<>();
 
-    public Chest(){
+    public Chest() {
+        // When a new chest is created populate it with random items.
         this.setName("Chest");
-
-    }
-    public static void populateChest(){
+        // Each chest will have exactly one random item for the time being.
+        RandomItem newItem = new RandomItem();
+        ChestInventory.add(newItem.randomItem());
+        System.out.println("Chest created with the following items:");
+        for (Item item : ChestInventory) {
+            System.out.println(item.getName());
+        }
 
     }
 }

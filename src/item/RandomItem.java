@@ -7,7 +7,7 @@ public class RandomItem {
     Random rand = new Random();
     ArrayList<Item> randItems = new ArrayList<>();
 
-    RandomItem(){
+    public RandomItem() {
         // Sword, LifeRing, AttackPotion, Cape, HealthPotion,
         // Shield
         this.randItems.add(new HealthPotion());
@@ -17,7 +17,8 @@ public class RandomItem {
         this.randItems.add(new Cape());
         this.randItems.add(new LifeRing());
     }
-    public Item randomItem(){
+
+    public Item randomItem() {
         int chosen_value = rand.nextInt(this.randItems.size());
         Item itemChosen = this.randItems.get(chosen_value);
         System.out.println("New item: " + itemChosen.getName());
