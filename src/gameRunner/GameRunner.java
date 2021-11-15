@@ -1,3 +1,5 @@
+package gameRunner;
+
 import assets.Actor;
 import assets.Chest;
 import assets.Goblin;
@@ -121,12 +123,13 @@ public class GameRunner {
                     System.out.println("\nCongratulations you have defeated the goblin");
                     System.out.println("And found a chest!!!");
                     board.displayBoard();
+                    pause(5);
                     System.out.println("**************************************");
                     System.out.println("......Moving on to next stage.........");
                     return human;
-                    // @TODO player to proceed to next map
-                    // @TODO return human and begin next encounter sequence
-                    // @TODO if this is last iteration, player wins
+                    // if player wins; they will proceed to the next map.
+                    // if this is the last encounter, player wins.
+                    // @ return human to set up the next encounter
                     // @****maybe check to see if high score!!!!********
 
                 }
@@ -140,15 +143,15 @@ public class GameRunner {
             }
             // Player can select from a range of items.
             if (Integer.parseInt(reply) == 2) {
-               human.useItemFromInventory();
+                human.useItemFromInventory();
                 continue;
             }
 
-            // IF legal the player
+            // Allow the player to view their statistics
             if (Integer.parseInt(reply) == 3) {
-                System.out.println("Please enter new selection");
-                reply = getPlayerInput();
-                System.out.println(reply);
+                tesStats(human);
+                System.out.println();
+                pause(2);
             }
         }
     }
@@ -177,7 +180,7 @@ public class GameRunner {
         System.out.println("Player, please proceed");
         System.out.println("(1) Move");
         System.out.println("(2) Use item");
-        System.out.println("(3) Attack");
+        System.out.println("(3) List Player Stats");
     }
 
     public static void welcomeBanner() {
@@ -213,7 +216,7 @@ public class GameRunner {
 
     public static void pause(int secs) {
         try {
-            TimeUnit.SECONDS.sleep(1);
+            TimeUnit.SECONDS.sleep(secs);
         } catch (Exception err) {
             System.out.println(err.getMessage());
             System.out.println("Unable to pause");

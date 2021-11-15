@@ -1,5 +1,6 @@
 package assets;
 
+import gameRunner.GameRunner;
 import item.Item;
 
 import java.util.ArrayList;
@@ -98,6 +99,8 @@ public abstract class Actor extends Asset {
             int dmg = attack - actor.getArmorClass();
             // compute dmg vs. armor class to get total dmg done.
             dmg = (dmg < 0) ? 0 : dmg;
+            // pause for (1) second each round
+            GameRunner.pause(1);
             System.out.println(this.getName() + " attacks for: " + attack);
             System.out.println(this.getName() + " causing dmg: " + dmg);
             actor.setHealth(actor.getHealth() - dmg);
@@ -113,6 +116,7 @@ public abstract class Actor extends Asset {
             dmg = attack - this.getArmorClass();
             // compute dmg vs. armor class to get total dmg done.
             dmg = (dmg < 0) ? 0 : dmg;
+            GameRunner.pause(1);
             System.out.println(actor.getName() + " attacks for: " + attack);
             System.out.println(actor.getName() + " causing dmg: " + dmg);
             this.setHealth(this.getHealth() - dmg);
