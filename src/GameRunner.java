@@ -9,6 +9,7 @@ import item.Sword;
 
 import java.io.IOException;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 public class GameRunner {
     public static void main(String[] args) {
@@ -119,6 +120,7 @@ public class GameRunner {
                     // populate the chest with a random item
                     System.out.println("\nCongratulations you have defeated the goblin");
                     System.out.println("And found a chest!!!");
+                    board.displayBoard();
                     System.out.println("**************************************");
                     System.out.println("......Moving on to next stage.........");
                     return human;
@@ -127,6 +129,10 @@ public class GameRunner {
                     // @TODO if this is last iteration, player wins
                     // @****maybe check to see if high score!!!!********
 
+                }
+                if (human.getHealth() <= 0) {
+                    System.out.println("You were defeated!!!!");
+                    return human;
                 }
                 board.displayBoard();
                 continue;
@@ -202,6 +208,15 @@ public class GameRunner {
             Runtime.getRuntime().exec("cls");
         } catch (IOException err) {
             System.out.println("Sorry unable to clear screen!!!");
+        }
+    }
+
+    public static void pause(int secs) {
+        try {
+            TimeUnit.SECONDS.sleep(1);
+        } catch (Exception err) {
+            System.out.println(err.getMessage());
+            System.out.println("Unable to pause");
         }
     }
 }
