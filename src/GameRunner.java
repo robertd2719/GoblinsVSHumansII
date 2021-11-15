@@ -7,6 +7,7 @@ import item.LifeRing;
 import item.Shield;
 import item.Sword;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class GameRunner {
@@ -17,7 +18,21 @@ public class GameRunner {
         human.pickUpItem(new Sword());
         human.pickUpItem(new Shield());
         human = (Human) runStageOne(human);
-        human = (Human) runBossStage(human);
+        // check for state of human to see if it is still alive
+        if (human.getHealth() <= 0) {
+            // Human did not survive
+            endGameSequence(human, END_GAME.LOSE);
+        } else {
+            human = (Human) runBossStage(human);
+            // Did player survive the boss battle?
+            if (human.getHealth() <= 0) {
+                clearScreen();
+                endGameSequence(human, END_GAME.LOSE);
+            } else {
+                clearScreen();
+                endGameSequence(human, END_GAME.WIN);
+            }
+        }
     }
 
     public static void displayMenu() {
@@ -46,7 +61,7 @@ public class GameRunner {
     }
 
     public static Actor runBossStage(Human human) {
-        GameBoard board2 = new GameBoard(15, 10);
+        GameBoard board2 = new GameBoard(15, 29);
         human = (Human) MainLoop(human, board2);
 
         return human;
@@ -102,9 +117,10 @@ public class GameRunner {
                     board.placeItem(new Chest(), goblin.getRowPosition(), goblin.getColumnPosition());
                     // Spawn a random chest on the board.
                     // populate the chest with a random item
-                    System.out.println("Congratulations you have found a chest");
+                    System.out.println("\nCongratulations you have defeated the goblin");
+                    System.out.println("And found a chest!!!");
                     System.out.println("**************************************");
-                    System.out.println("Moving on to next stage...............");
+                    System.out.println("......Moving on to next stage.........");
                     return human;
                     // @TODO player to proceed to next map
                     // @TODO return human and begin next encounter sequence
@@ -164,5 +180,32 @@ public class GameRunner {
         System.out.println("--------------------------------");
     }
 
+    // Game over, end sequence...update player score and place
+    // score into the high scorer category if it does not exist.
+    public static void endGameSequence(Human human, END_GAME status) {
 
+        switch (status) {
+            case WIN: {
+                System.out.println("\nCONGRATULATIONS WINNER!!");
+                break;
+            }
+            case LOSE: {
+                System.out.println("\nSorry Please try again!!!");
+                break;
+            }
+        }
+        System.out.println("---------Game Over-----------");
+    }
+
+    public static void clearScreen() {
+        try {
+            Runtime.getRuntime().exec("cls");
+        } catch (IOException err) {
+            System.out.println("Sorry unable to clear screen!!!");
+        }
+    }
+}
+
+enum END_GAME {
+    WIN, LOSE
 }

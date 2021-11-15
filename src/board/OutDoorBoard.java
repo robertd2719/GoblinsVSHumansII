@@ -1,19 +1,19 @@
 package board;
 import assets.Asset;
 
-public class OutDoorBoard {
+public class OutDoorBoard extends GameBoard {
     private int rows;
     private int columns;
 
-    public OutDoorBoard(){
+    public OutDoorBoard() {
         this.rows = 10;
         this.columns = 10;
-        Asset [][] board = new Asset [rows][columns];
+        Asset[][] board = new Asset[rows][columns];
+        // populate all your trees and stuff
     }
 
-    public OutDoorBoard(int rows,int columns){
-        this.rows=rows;
-        this.columns=columns;
-        Asset [][] board = new Asset[rows][columns];
+    @Override
+    public void displayBoard() {
+        // write your code here....
     }
 }
