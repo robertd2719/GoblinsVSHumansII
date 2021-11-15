@@ -18,7 +18,7 @@ public class GameRunner {
         human.pickUpItem(new LifeRing());
         human.pickUpItem(new Sword());
         human.pickUpItem(new Shield());
-        human = (Human) runStageOne(human);
+//        human = (Human) runStageOne(human);
         human = (Human) runBossStage(human);
     }
 

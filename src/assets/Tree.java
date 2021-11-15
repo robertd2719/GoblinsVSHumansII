@@ -2,7 +2,7 @@ package assets;
 
 public class Tree extends NonActor {
     public Tree() {
-        System.out.println("New Tree Created");
+//        System.out.println("New Tree Created");
         this.setName("Tree");
     }
     @Override

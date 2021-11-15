@@ -2,7 +2,7 @@ package assets;
 
 public class Tile extends NonActor {
     public Tile(){
-    System.out.println("New Tile Created");
+//    System.out.println("New Tile Created");
     this.setName("Tile");
 }
     @Override
