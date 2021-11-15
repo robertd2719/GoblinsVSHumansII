@@ -258,8 +258,6 @@ public class GameRunner {
     }
 
 
-
-
     public static void pause(int secs) {
         try {
             TimeUnit.SECONDS.sleep(secs);
