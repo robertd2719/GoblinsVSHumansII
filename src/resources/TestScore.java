@@ -21,7 +21,7 @@ public class TestScore {
         List<String> outArray = readFile(path);
         var outArray2 = outArray.stream().map(e -> Stream.of(e.split(" ")).collect(Collectors.toList()))
                 .collect(Collectors.toCollection(ArrayList::new));
-        outArray2.stream().sorted((a, b) -> Integer.parseInt(b.get(1)) - Integer.parseInt(a.get(1))).forEach(System.out::println);
+        outArray2.stream().sorted((a, b) -> Integer.parseInt(b.get(1)) - Integer.parseInt(a.get(1))).forEach(e->System.out.print("\t"+e+"\n"));
     }
 
 

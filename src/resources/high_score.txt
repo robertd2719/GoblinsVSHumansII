@@ -10,3 +10,7 @@ Max 2100
 Alonso 3200
 Leif 21000
 Armand 1222
+Robert 39000
+Rudolf 12
+Greyward 320
+Nancy 1200
