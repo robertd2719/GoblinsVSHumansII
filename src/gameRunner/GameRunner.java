@@ -117,11 +117,13 @@ public class GameRunner {
                 board.displayBoard();
                 if (goblin.getHealth() <= 0) {
                     board.removeItem(goblin);
-                    board.placeItem(new Chest(), goblin.getRowPosition(), goblin.getColumnPosition());
+                    var lootChest = new Chest();
+                    board.placeItem(lootChest, goblin.getRowPosition(), goblin.getColumnPosition());
                     // Spawn a random chest on the board.
                     // populate the chest with a random item
                     System.out.println("\nCongratulations you have defeated the goblin");
-                    System.out.println("And found a chest!!!");
+                    System.out.println("And found a chest containing a "+lootChest.getItem().getName()+"!!!");
+                    human.pickUpItem(lootChest.getItem());
                     board.displayBoard();
                     pause(5);
                     System.out.println("**************************************");
