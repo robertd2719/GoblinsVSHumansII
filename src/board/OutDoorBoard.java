@@ -11,4 +11,9 @@ public class OutDoorBoard {
         Asset [][] board = new Asset [rows][columns];
     }
 
+    public OutDoorBoard(int rows,int columns){
+        this.rows=rows;
+        this.columns=columns;
+        Asset [][] board = new Asset[rows][columns];
+    }
 }

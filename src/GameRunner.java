@@ -3,8 +3,6 @@ import assets.Chest;
 import assets.Goblin;
 import assets.Human;
 import board.GameBoard;
-import board.BossStage;
-import board.StageOne;
 import item.LifeRing;
 import item.Shield;
 import item.Sword;
@@ -41,17 +39,16 @@ public class GameRunner {
     }
 
     public static Actor runStageOne(Human human) {
-        StageOne stageOne = new StageOne();
-        stageOne.displayBoard();
-        human = (Human) MainLoop(human, stageOne);
+        GameBoard board = new GameBoard(15, 20);
+        human = (Human) MainLoop(human, board);
 
         return human;
     }
 
     public static Actor runBossStage(Human human) {
-        BossStage bossStage = new BossStage();
-        bossStage.displayBoard();
-        human = (Human) MainLoop(human, bossStage);
+        GameBoard board2 = new GameBoard(15, 10);
+        human = (Human) MainLoop(human, board2);
+
         return human;
     }
 
@@ -121,7 +118,7 @@ public class GameRunner {
             }
             // Player can select from a range of items.
             if (Integer.parseInt(reply) == 2) {
-                human.useItemFromInventory();
+               human.useItemFromInventory();
                 continue;
             }
 
@@ -166,4 +163,6 @@ public class GameRunner {
         System.out.println("Welcome to Humans vs. Goblins II");
         System.out.println("--------------------------------");
     }
+
+
 }

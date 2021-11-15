@@ -39,12 +39,17 @@ public class Colortester{
         LootChest loot = new LootChest();
         Water water = new Water();
 
+<<<<<<< HEAD
         GameBoard StageTwo = new GameBoard(10,15);
+=======
+        GameBoard level2 = new GameBoard(10,15);
+>>>>>>> master
         Volcano volcano = new Volcano();
         Castle castle = new Castle();
 
 
 
+<<<<<<< HEAD
         StageTwo.placeItem(volcano,9,13);
         StageTwo.placeItem(volcano,8,14);
         StageTwo.placeItem(volcano,9,14);
@@ -65,11 +70,34 @@ public class Colortester{
         StageTwo.placeItem(loot,0,1);
         StageTwo.placeItem(castle,5, 14);
         displayBoard(StageTwo,colorPicks,bgColor );
+=======
+        level2.placeItem(volcano,9,13);
+        level2.placeItem(volcano,8,14);
+        level2.placeItem(volcano,9,14);
+        level2.placeItem(volcano,6,9);
+        level2.placeItem(volcano,9,14);
+        level2.placeItem(water,0,0);
+        level2.placeItem(water,1,0);
+        level2.placeItem(water,1,1);
+        level2.placeItem(water,1,2);
+        level2.placeItem(tree,3, 6);
+        level2.placeItem(tree,3, 7);
+        level2.placeItem(tree,3, 8);
+        level2.placeItem(tree,2, 5);
+        level2.placeItem(tree,9, 6);
+        level2.placeItem(tree,4, 7);
+        level2.placeItem(tree,6, 8);
+        level2.placeItem(tree,7, 5);
+        level2.placeItem(loot,0,1);
+        level2.placeItem(castle,5, 14);
+        displayBoard(level2,colorPicks,bgColor );
+>>>>>>> master
 
 
 
 
 
+<<<<<<< HEAD
 //        GameBoard StageOne = new GameBoard(15,20);
 //        StageOne.placeActor(goblin,9,1);
 //        StageOne.placeActor(human,6,4);
@@ -114,6 +142,52 @@ public class Colortester{
 //        StageOne.placeItem(tree,12,11);
 //        StageOne.placeItem(tree,13,12);
 //        displayBoard(StageOne,colorPicks,bgColor);
+=======
+//        GameBoard level1 = new GameBoard(15,20);
+//        level1.placeActor(goblin,9,1);
+//        level1.placeActor(human,6,4);
+//        level1.placeItem(mountains,1, 1);
+//        level1.placeItem(mountains,1, 2);
+//        level1.placeItem(mountains,2, 1);
+//        level1.placeItem(mountains,2, 2);
+//        level1.placeItem(mountains,0, 0);
+//        level1.placeItem(mountains,0, 1);
+//        level1.placeItem(mountains,1, 1);
+//        level1.placeItem(mountains,1, 0);
+//        level1.placeItem(mountains,2, 0);
+//        level1.placeItem(mountains,13, 19);
+//        level1.placeItem(mountains,14, 10);
+//        level1.placeItem(mountains,12, 15);
+//        level1.placeItem(water,13, 18);
+//        level1.placeItem(water,13, 17);
+//        level1.placeItem(water,13, 16);
+//        level1.placeItem(water,14, 18);
+//        level1.placeItem(water,4, 9);
+//        level1.placeItem(water,4, 10);
+//        level1.placeItem(water,14, 19);
+//        level1.placeItem(water,13, 19);
+//        level1.placeItem(loot,8, 12);
+//        level1.placeItem(loot,6, 0);
+//        level1.placeItem(tree,2,10);
+//        level1.placeItem(tree,2,9);
+//        level1.placeItem(tree,3,8);
+//        level1.placeItem(tree,3,8);
+//        level1.placeItem(tree,3,9);
+//        level1.placeItem(tree,3,10);
+//        level1.placeItem(tree,4,11);
+//        level1.placeItem(tree,3,11);
+//        level1.placeItem(tree,3,12);
+//        level1.placeItem(tree,2,17);
+//        level1.placeItem(tree,2,16);
+//        level1.placeItem(tree,3,18);
+//        level1.placeItem(tree,12,18);
+//        level1.placeItem(tree,14,12);
+//        level1.placeItem(tree,14,13);
+//        level1.placeItem(tree,14,11);
+//        level1.placeItem(tree,12,11);
+//        level1.placeItem(tree,13,12);
+//        displayBoard(level1,colorPicks,bgColor);
+>>>>>>> master
 
 //    GameBoard level3 = new GameBoard(7,20);
 //    Tile tile = new Tile();
