@@ -12,10 +12,14 @@ import item.Sword;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class GameRunner {
     public static void main(String[] args) {
@@ -208,11 +212,23 @@ public class GameRunner {
             }
             case LOSE: {
                 System.out.println("\n\tSorry Please try again!!!");
-                System.out.println("\n\tPlayer Score: "+human.getScore());
+                System.out.println("\n\tPlayer Score: " + human.getScore());
                 break;
             }
         }
         System.out.println("\t---------Game Over-----------");
+    }
+
+    public static void readWriteHighScores(Human human) {
+        // attempt to open a file if one exists
+        Path path = Paths.get("src/resources/high_score.txt");
+
+        createFile(path);
+        writeFile(path);
+        List<String> outArray = readFile(path);
+        var outArray2 = outArray.stream().map(e -> Stream.of(e.split(" ")).collect(Collectors.toList()))
+                .collect(Collectors.toCollection(ArrayList::new));
+        outArray2.stream().sorted((a, b) -> Integer.parseInt(b.get(1)) - Integer.parseInt(a.get(1))).forEach(e -> System.out.print("\t" + e + "\n"));
     }
 
     // If the file does not exist we will attempt to create it here
@@ -256,7 +272,6 @@ public class GameRunner {
         }
         return null;
     }
-
 
     public static void pause(int secs) {
         try {
