@@ -25,6 +25,7 @@ public class GameRunner {
     public static void main(String[] args) {
         // create the player and give them some items to use along their adventure
         Human human = new Human();
+        welcomeBanner();
         human.pickUpItem(new LifeRing());
         human.pickUpItem(new Sword());
         human.pickUpItem(new Shield());
@@ -128,14 +129,14 @@ public class GameRunner {
                     board.placeItem(lootChest, goblin.getRowPosition(), goblin.getColumnPosition());
                     // Spawn a random chest on the board.
                     // populate the chest with a random item
-                    System.out.println("\nCongratulations you have defeated the goblin");
-                    System.out.println("And found a chest containing a "+lootChest.getItem().getName()+"!!!");
+                    System.out.println("\n\t\tCongratulations you have defeated the goblin");
+                    System.out.println("\t\tAnd found a chest containing a " + lootChest.getItem().getName() + "!!!");
                     human.pickUpItem(lootChest.getItem());
                     board.displayBoard();
-                    human.setScore(human.getScore()+15);
+                    human.setScore(human.getScore() + 15);
                     pause(5);
-                    System.out.println("**************************************");
-                    System.out.println("......Moving on to next stage.........");
+                    System.out.println("\t\t**************************************");
+                    System.out.println("\t\t......Moving on to next stage.........");
                     return human;
                     // if player wins; they will proceed to the next map.
                     // if this is the last encounter, player wins.
@@ -144,8 +145,8 @@ public class GameRunner {
 
                 }
                 if (human.getHealth() <= 0) {
-                    System.out.println("You were defeated!!!!");
-                    System.out.println("Player Score: "+human.getScore());
+                    System.out.println("\t\tYou were defeated!!!!");
+                    System.out.println("\t\tPlayer Score: " + human.getScore());
                     return human;
                 }
                 board.displayBoard();
@@ -167,12 +168,15 @@ public class GameRunner {
         }
     }
 
-    public static void playerMoveSelection(){
-        System.out.println("What direction would you like to move?:");
-        System.out.println("1. Up");
-        System.out.println("2. Right");
-        System.out.println("3. Down");
-        System.out.println("4. Left");
+    public static void playerMoveSelection() {
+        System.out.println("\t" +
+                "What direction would you like to move?:");
+        System.out.println();
+        System.out.println("\t\t\t1. Up");
+        System.out.println("\t\t\t2. Right");
+        System.out.println("\t\t\t3. Down");
+        System.out.println("\t\t\t4. Left");
+        System.out.println();
     }
 
     public static String getPlayerInput() {
@@ -188,10 +192,12 @@ public class GameRunner {
     }
 
     public static void displayOptions() {
-        System.out.println("Player, please proceed");
-        System.out.println("(1) Move");
-        System.out.println("(2) Use item");
-        System.out.println("(3) List Player Stats");
+        System.out.println("\t\tPlayer, please proceed");
+        System.out.println();
+        System.out.println("\t\t\t(1) Move");
+        System.out.println("\t\t\t(2) Use item");
+        System.out.println("\t\t\t(3) List Player Stats");
+        System.out.println();
     }
 
     public static void welcomeBanner() {
@@ -263,7 +269,7 @@ public class GameRunner {
         }
     }
 
-    // read information from a file and output to a List
+    // Read information from a file and output to a List
     public static List readFile(Path path) {
         try {
             var input = Files.readAllLines(path);
@@ -275,6 +281,7 @@ public class GameRunner {
         return null;
     }
 
+    // pause for effect
     public static void pause(int secs) {
         try {
             TimeUnit.SECONDS.sleep(secs);
@@ -282,6 +289,11 @@ public class GameRunner {
             System.out.println(err.getMessage());
             System.out.println("Unable to pause");
         }
+    }
+
+    //
+    public static void centerPrint(String str) {
+
     }
 }
 

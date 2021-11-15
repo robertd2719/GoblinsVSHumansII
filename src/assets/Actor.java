@@ -101,15 +101,15 @@ public abstract class Actor extends Asset {
             dmg = (dmg < 0) ? 0 : dmg;
             // pause for (1) second each round
             GameRunner.pause(1);
-            System.out.println(this.getName() + " attacks for: " + attack);
-            System.out.println(this.getName() + " causing dmg: " + dmg);
+            System.out.println("\t\t" + this.getName() + " attacks for: " + attack);
+            System.out.println("\t\t" + this.getName() + " causing dmg: " + dmg);
             actor.setHealth(actor.getHealth() - dmg);
-            System.out.println(actor.getName() + " health: " + actor.getHealth());
+            System.out.println("\t\t" + actor.getName() + "health: " + actor.getHealth());
             if (actor.getHealth() <= 0) {
-                System.out.println(this.getName() + " wins!");
+                System.out.println("\t\t" + this.getName() + " wins!");
                 return actor;
             }
-            System.out.println("----------");
+            System.out.println("\t\t----------");
 
             // Phase(2) actor attacks this.
             attack = new Random().nextInt(actor.getAttack()) + 1;
@@ -117,15 +117,15 @@ public abstract class Actor extends Asset {
             // compute dmg vs. armor class to get total dmg done.
             dmg = (dmg < 0) ? 0 : dmg;
             GameRunner.pause(1);
-            System.out.println(actor.getName() + " attacks for: " + attack);
-            System.out.println(actor.getName() + " causing dmg: " + dmg);
+            System.out.println("\t\t" + actor.getName() + " attacks for: " + attack);
+            System.out.println("\t\t" + actor.getName() + " causing dmg: " + dmg);
             this.setHealth(this.getHealth() - dmg);
-            System.out.println(this.getName() + " health: " + this.getHealth());
+            System.out.println("\t\t" + this.getName() + " health: " + this.getHealth());
             if (this.getHealth() <= 0) {
-                System.out.println(actor.getName() + " wins!");
+                System.out.println("\t\t" + actor.getName() + " wins!");
                 return this;
             }
-            System.out.println("----------");
+            System.out.println("\t\t----------");
         }
         return null;
     }

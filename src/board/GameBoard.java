@@ -36,7 +36,8 @@ public class GameBoard {
                 this.board[targetRow][currentCol] = item;
             }
         } catch (Exception err) {
-            System.out.println("Sorry, illegal move - up");
+//            System.out.println("Sorry, illegal move - up");
+            System.out.println(err.getMessage());
         }
 
     }
@@ -55,7 +56,8 @@ public class GameBoard {
                 this.board[item.getRowPosition()][item.getColumnPosition()] = item;
             }
         } catch (Exception err) {
-            System.out.println("Sorry, illegal move - down");
+//            System.out.println("Sorry, illegal move - down");
+            System.out.println(err.getMessage());
         }
     }
 
@@ -76,8 +78,9 @@ public class GameBoard {
                 this.board[item.getRowPosition()][item.getColumnPosition()] = item;
                 return;
             }
-        } catch (Exception e) {
-            System.out.println("Sorry, illegal move -left");
+        } catch (Exception err) {
+//            System.out.println("Sorry, illegal move -left");
+            System.out.println(err.getMessage());
             return;
         }
     }
@@ -98,8 +101,9 @@ public class GameBoard {
                 this.board[item.getRowPosition()][item.getColumnPosition()] = item;
                 return;
             }
-        } catch (Exception e) {
-            System.out.println("Sorry you can not move that many spaces right!");
+        } catch (Exception err) {
+//            System.out.println("Sorry you can not move that many spaces right!");
+            System.out.println(err.getMessage());
             return;
         }
     }
@@ -144,7 +148,7 @@ public class GameBoard {
                     System.out.print("~ ");
 //                    System.out.print("\uD83C\uDF2B");
                 } else {
-                    System.out.print(this.board[i][j] + " ");
+                    System.out.print(this.board[i][j] + "");
                 }
             }
             System.out.println();
