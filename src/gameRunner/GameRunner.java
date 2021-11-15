@@ -56,12 +56,14 @@ public class GameRunner {
     }
 
     public static void tesStats(Actor item) {
-        System.out.println("\n***** STATS ******");
-        System.out.println("Name: \t\t" + item.getName());
-        System.out.println("Health: \t" + item.getHealth());
-        System.out.println("Attack: \t" + item.getAttack());
-        System.out.println("Armor: \t" + item.getArmorClass());
-        System.out.println("***** + ******");
+        System.out.println("\n\t*** Player Statistics ***");
+        System.out.println("");
+        System.out.println("\t\tClass: \t\t" + item.getName());
+        System.out.println("\t\tHealth: \t" + item.getHealth());
+        System.out.println("\t\tAttack: \t" + item.getAttack());
+        System.out.println("\t\tArmor: \t\t" + item.getArmorClass());
+        System.out.println();
+        System.out.println("\t*********** + ***********");
     }
 
     public static Actor runStageOne(Human human) {
@@ -201,9 +203,11 @@ public class GameRunner {
     }
 
     public static void welcomeBanner() {
-        System.out.println("--------------------------------");
-        System.out.println("Welcome to Humans vs. Goblins II");
-        System.out.println("--------------------------------");
+        System.out.println();
+        System.out.println("\t\t--------------------------------");
+        System.out.println("\t\tWelcome to Humans vs. Goblins II");
+        System.out.println("\t\t--------------------------------");
+        System.out.println();
     }
 
     // Game over, end sequence...update player score and place
