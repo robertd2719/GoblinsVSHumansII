@@ -207,12 +207,14 @@ public class GameRunner {
         switch (status) {
             case WIN: {
                 System.out.println("\n\tCONGRATULATIONS WINNER!!");
-                System.out.println("\n\tPlayer Score: "+human.getScore());
+                System.out.println("\n\tPlayer Score: " + human.getScore());
+                readWriteHighScores(human);
                 break;
             }
             case LOSE: {
                 System.out.println("\n\tSorry Please try again!!!");
                 System.out.println("\n\tPlayer Score: " + human.getScore());
+                readWriteHighScores(human);
                 break;
             }
         }
@@ -224,7 +226,7 @@ public class GameRunner {
         Path path = Paths.get("src/resources/high_score.txt");
 
         createFile(path);
-        writeFile(path);
+        writeFile(path, human);
         List<String> outArray = readFile(path);
         var outArray2 = outArray.stream().map(e -> Stream.of(e.split(" ")).collect(Collectors.toList()))
                 .collect(Collectors.toCollection(ArrayList::new));
@@ -247,12 +249,12 @@ public class GameRunner {
     }
 
     // Here we will write to the file itself
-    public static void writeFile(Path path) {
+    public static void writeFile(Path path, Human human) {
         Scanner in = new Scanner(System.in);
         System.out.print(" -- Pleas enter player name: ");
         var name = in.next();
-        System.out.print(" -- Please enter player score: ");
-        var score = in.next();
+
+        var score = human.getScore();
         try {
             Files.writeString(path, name + " " + score + "\n", StandardOpenOption.APPEND);
         } catch (IOException err) {
