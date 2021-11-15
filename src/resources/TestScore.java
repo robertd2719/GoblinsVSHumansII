@@ -24,7 +24,6 @@ public class TestScore {
         outArray2.stream().sorted((a, b) -> Integer.parseInt(b.get(1)) - Integer.parseInt(a.get(1))).forEach(e->System.out.print("\t"+e+"\n"));
     }
 
-
     public static void createFile(Path path) {
         if (Files.exists(path)) {
             System.out.println("High Score file exists");
