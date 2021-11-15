@@ -5,8 +5,8 @@ import assets.Asset;
 import assets.NonActor;
 
 public class GameBoard {
-    private int rows;
-    private int columns;
+    int rows;
+    int columns;
     Asset[][] board;
 
     public GameBoard() {
@@ -31,7 +31,7 @@ public class GameBoard {
                 this.board[item.getRowPosition()][item.getColumnPosition()] = item;
             }
         } catch (Exception err) {
-            System.out.println("Unable to move up by that amount");
+            System.out.println("Illegal move, sorry try again");
         }
 
     }
