@@ -245,6 +245,7 @@ public class GameRunner {
         }
     }
 
+    // read information from a file and output to a List
     public static List readFile(Path path) {
         try {
             var input = Files.readAllLines(path);
