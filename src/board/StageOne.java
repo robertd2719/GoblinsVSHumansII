@@ -51,6 +51,7 @@ public class StageOne extends GameBoard{
 
     @Override
     public void displayBoard() {
+        String RESET = "\u001B[0m";
         String herb = 	"\uD83C\uDF3F";
         for (int i = 0; i < this.getRows(); i++) {
             for (int j = 0; j < this.getColumns(); j++) {
@@ -62,6 +63,6 @@ public class StageOne extends GameBoard{
             }
             System.out.println();
         }
-        System.out.println();
+        System.out.println(RESET);
     }
 }
