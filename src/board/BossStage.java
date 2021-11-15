@@ -155,8 +155,7 @@ public class BossStage extends GameBoard {
         bossStage.placeItem(tile,6,17);
         bossStage.placeItem(tile,6,18);
         bossStage.placeItem(tile,6,19);
-        bossStage.placeItem(loot,3,18);
-        bossStage.placeActor(boss,3,9);
+
     }
 
     @Override
