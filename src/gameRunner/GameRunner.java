@@ -26,13 +26,12 @@ public class GameRunner {
             // Human did not survive
             endGameSequence(human, END_GAME.LOSE);
         } else {
+            System.out.println("Current Score: "+human.getScore());
             human = (Human) runBossStage(human);
             // Did player survive the boss battle?
             if (human.getHealth() <= 0) {
-                clearScreen();
                 endGameSequence(human, END_GAME.LOSE);
             } else {
-                clearScreen();
                 endGameSequence(human, END_GAME.WIN);
             }
         }
@@ -125,6 +124,7 @@ public class GameRunner {
                     System.out.println("And found a chest containing a "+lootChest.getItem().getName()+"!!!");
                     human.pickUpItem(lootChest.getItem());
                     board.displayBoard();
+                    human.setScore(human.getScore()+15);
                     pause(5);
                     System.out.println("**************************************");
                     System.out.println("......Moving on to next stage.........");
@@ -137,6 +137,7 @@ public class GameRunner {
                 }
                 if (human.getHealth() <= 0) {
                     System.out.println("You were defeated!!!!");
+                    System.out.println("Player Score: "+human.getScore());
                     return human;
                 }
                 board.displayBoard();
@@ -197,15 +198,17 @@ public class GameRunner {
 
         switch (status) {
             case WIN: {
-                System.out.println("\nCONGRATULATIONS WINNER!!");
+                System.out.println("\n\tCONGRATULATIONS WINNER!!");
+                System.out.println("\n\tPlayer Score: "+human.getScore());
                 break;
             }
             case LOSE: {
-                System.out.println("\nSorry Please try again!!!");
+                System.out.println("\n\tSorry Please try again!!!");
+                System.out.println("\n\tPlayer Score: "+human.getScore());
                 break;
             }
         }
-        System.out.println("---------Game Over-----------");
+        System.out.println("\t---------Game Over-----------");
     }
 
     public static void clearScreen() {
