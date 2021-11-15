@@ -124,10 +124,11 @@ public class GameBoard {
     }
 
     public void displayBoard() {
+        String herb = 	"\uD83C\uDF3F";
         for (int i = 0; i < this.getRows(); i++) {
             for (int j = 0; j < this.columns; j++) {
                 if (this.board[i][j] == null) {
-                    System.out.print("~ ");
+                    System.out.print(herb);
                 } else {
                     System.out.print(this.board[i][j] + " ");
                 }

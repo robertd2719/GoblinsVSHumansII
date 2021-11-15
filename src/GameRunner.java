@@ -3,6 +3,8 @@ import assets.Chest;
 import assets.Goblin;
 import assets.Human;
 import board.GameBoard;
+import board.BossStage;
+import board.StageOne;
 import item.LifeRing;
 import item.Shield;
 import item.Sword;
@@ -39,16 +41,17 @@ public class GameRunner {
     }
 
     public static Actor runStageOne(Human human) {
-        GameBoard board = new GameBoard(15, 20);
-        human = (Human) MainLoop(human, board);
+        StageOne stageOne = new StageOne();
+        stageOne.displayBoard();
+        human = (Human) MainLoop(human, stageOne);
 
         return human;
     }
 
     public static Actor runBossStage(Human human) {
-        GameBoard board2 = new GameBoard(15, 10);
-        human = (Human) MainLoop(human, board2);
-
+        BossStage bossStage = new BossStage();
+        bossStage.displayBoard();
+        human = (Human) MainLoop(human, bossStage);
         return human;
     }
 
