@@ -65,8 +65,8 @@ public abstract class Actor extends Asset {
         int currentRow = this.getRowPosition();
         int currentCol = this.getColumnPosition();
         int targetRow = target.getRowPosition();
-        System.out.println("Goblin " + this.getRowPosition() + " ," + this.getColumnPosition());
-        System.out.println("Goblin " + this.getRowPosition() + " ," + this.getColumnPosition());
+//        System.out.println("Goblin " + this.getRowPosition() + " ," + this.getColumnPosition());
+//        System.out.println("Goblin " + this.getRowPosition() + " ," + this.getColumnPosition());
         int targetCol = target.getColumnPosition();
         if ((currentRow + 1 == targetRow) || (currentRow - 1 == targetRow)) {
             if (currentCol == targetCol) {
