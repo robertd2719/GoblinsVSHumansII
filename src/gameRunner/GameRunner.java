@@ -26,9 +26,12 @@ public class GameRunner {
         // create the player and give them some items to use along their adventure
         Human human = new Human();
         welcomeBanner();
+        pause(2);
+        System.out.println("\t\t.....some items to aid you on your journey\n");
         human.pickUpItem(new LifeRing());
         human.pickUpItem(new Sword());
         human.pickUpItem(new Shield());
+        pause(2);
         human = (Human) runStageOne(human);
         // check for state of human to see if it is still alive
         if (human.getHealth() <= 0) {
@@ -46,24 +49,15 @@ public class GameRunner {
         }
     }
 
-    public static void displayMenu() {
-        System.out.println("\t\t***** Main Menu ****");
-        System.out.println("\t\t\t (M)ove");
-        System.out.println("\t\t\t (A)ttack");
-        System.out.println("\t\t\t (U)se Item");
-        System.out.println("\t\t********* + *********");
-
-    }
-
     public static void tesStats(Actor item) {
-        System.out.println("\n\t*** Player Statistics ***");
+        System.out.println("\n\t\t\t*** Player Statistics ***");
         System.out.println("");
-        System.out.println("\t\tClass: \t\t" + item.getName());
-        System.out.println("\t\tHealth: \t" + item.getHealth());
-        System.out.println("\t\tAttack: \t" + item.getAttack());
-        System.out.println("\t\tArmor: \t\t" + item.getArmorClass());
+        System.out.println("\t\t\t\tClass: \t\t" + item.getName());
+        System.out.println("\t\t\t\tHealth: \t" + item.getHealth());
+        System.out.println("\t\t\t\tAttack: \t" + item.getAttack());
+        System.out.println("\t\t\t\tArmor: \t\t" + item.getArmorClass());
         System.out.println();
-        System.out.println("\t*********** + ***********");
+        System.out.println("\t\t\t*********** + ***********");
     }
 
     public static Actor runStageOne(Human human) {
@@ -102,7 +96,7 @@ public class GameRunner {
         while (true) {
             displayOptions();
             var reply = getPlayerInput();
-            System.out.println("\t\tPlayer chooses: " + reply);
+            System.out.println("\t\t\t\tPlayer chooses: " + reply);
             if (Integer.parseInt(reply) == 1) {
                 board.displayBoard();
                 playerMoveSelection();
@@ -136,9 +130,11 @@ public class GameRunner {
                     human.pickUpItem(lootChest.getItem());
                     board.displayBoard();
                     human.setScore(human.getScore() + 15);
-                    pause(5);
-                    System.out.println("\t\t**************************************");
-                    System.out.println("\t\t......Moving on to next stage.........");
+                    pause(1);
+                    System.out.println("\t\t\t**************************************");
+                    System.out.println("\t\t\t......Moving on to next stage.........");
+                    System.out.println("\t\t\t**************************************");
+                    pause(2);
                     return human;
                     // if player wins; they will proceed to the next map.
                     // if this is the last encounter, player wins.
@@ -147,8 +143,8 @@ public class GameRunner {
 
                 }
                 if (human.getHealth() <= 0) {
-                    System.out.println("\t\tYou were defeated!!!!");
-                    System.out.println("\t\tPlayer Score: " + human.getScore());
+                    System.out.println("\t\t\t\tYou were defeated!!!!");
+                    System.out.println("\t\t\t\tPlayer Score: " + human.getScore());
                     return human;
                 }
                 board.displayBoard();
@@ -171,13 +167,13 @@ public class GameRunner {
     }
 
     public static void playerMoveSelection() {
-        System.out.println("\t" +
+        System.out.println("\t\t" +
                 "What direction would you like to move?:");
         System.out.println();
-        System.out.println("\t\t\t1. Up");
-        System.out.println("\t\t\t2. Right");
-        System.out.println("\t\t\t3. Down");
-        System.out.println("\t\t\t4. Left");
+        System.out.println("\t\t\t\t\t1. Up");
+        System.out.println("\t\t\t\t\t2. Right");
+        System.out.println("\t\t\t\t\t3. Down");
+        System.out.println("\t\t\t\t\t4. Left");
         System.out.println();
     }
 
@@ -194,11 +190,11 @@ public class GameRunner {
     }
 
     public static void displayOptions() {
-        System.out.println("\t\tPlayer, please proceed");
+        System.out.println("\t\t\t\tPlayer, please proceed");
         System.out.println();
-        System.out.println("\t\t\t(1) Move");
-        System.out.println("\t\t\t(2) Use item");
-        System.out.println("\t\t\t(3) List Player Stats");
+        System.out.println("\t\t\t\t\t(1) Move");
+        System.out.println("\t\t\t\t\t(2) Use item");
+        System.out.println("\t\t\t\t\t(3) List Player Stats");
         System.out.println();
     }
 
@@ -216,14 +212,14 @@ public class GameRunner {
 
         switch (status) {
             case WIN: {
-                System.out.println("\n\tCONGRATULATIONS WINNER!!");
-                System.out.println("\n\tPlayer Score: " + human.getScore());
+                System.out.println("\n\t\t\tCONGRATULATIONS WINNER!!");
+                System.out.println("\n\t\t\tPlayer Score: " + human.getScore());
                 readWriteHighScores(human);
                 break;
             }
             case LOSE: {
-                System.out.println("\n\tSorry Please try again!!!");
-                System.out.println("\n\tPlayer Score: " + human.getScore());
+                System.out.println("\n\t\t\t\tSorry Please try again!!!");
+                System.out.println("\n\t\t\t\tPlayer Score: " + human.getScore());
                 readWriteHighScores(human);
                 break;
             }
@@ -246,11 +242,11 @@ public class GameRunner {
     // If the file does not exist we will attempt to create it here
     public static void createFile(Path path) {
         if (Files.exists(path)) {
-            System.out.println("High Score file exists");
+            System.out.println("\t\t\t\tHigh Score file exists");
         } else {
             try {
                 Files.createFile(path);
-                System.out.println("high_score file was created!!!");
+                System.out.println("\t\t\thigh_score file was created!!!");
             } catch (Exception err) {
                 System.out.println("Unable to ope file");
                 System.out.println(err.getMessage());
@@ -261,7 +257,7 @@ public class GameRunner {
     // Here we will write to the file itself
     public static void writeFile(Path path, Human human) {
         Scanner in = new Scanner(System.in);
-        System.out.print(" -- Pleas enter player name: ");
+        System.out.print("\t\t -- Pleas enter player name: ");
         var name = in.next();
 
         var score = human.getScore();

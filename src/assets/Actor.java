@@ -20,7 +20,7 @@ public abstract class Actor extends Asset {
     // items are going to use this to track items
     public void useItem(Item item) {
         System.out.println();
-        System.out.println("\t\tPlayer uses 3: " + item.getName());
+        System.out.println("\t\t\t\tPlayer uses : " + item.getName());
         System.out.println();
         switch (item.getEffect()) {
             case LIFE: {
@@ -207,20 +207,21 @@ public abstract class Actor extends Asset {
 
     public void useItemFromInventory() {
         // If there are no items in inventory, return inventory is empty
-        if (this.itemList.isEmpty()){
-            System.out.println("\nThere is nothing left in your inventory");
+        if (this.itemList.isEmpty()) {
+            System.out.println("\n\t\t\tThere is nothing left in your inventory");
+            GameRunner.pause(1);
             return;
         }
-        System.out.println("\n\t\t------Inventory-------");
+        System.out.println("\n\t\t\t\t------Inventory-------");
         System.out.println();
         for (int i = 0; i < this.itemList.size(); i++) {
             var size = itemList.size();
             var name = itemList.get(i).getName();
             var value = itemList.get(i).getValue();
             var effect = itemList.get(i).getEffect();
-            System.out.println("\t\t"+ (i + 1) + " " + name + " +" + value + " " + effect);
+            System.out.println("\t\t\t\t" + (i + 1) + " " + name + " +" + value + " " + effect);
         }
-        System.out.println("\n\tWhich item would you like to use (1-" + itemList.size() + ")");
+        System.out.println("\n\t\t\tWhich item would you like to use (1-" + itemList.size() + ")");
         var scanner = new Scanner(System.in);
         try{
             var input = scanner.nextInt();
