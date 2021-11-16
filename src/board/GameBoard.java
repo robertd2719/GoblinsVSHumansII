@@ -1,8 +1,6 @@
 package board;
 
-import assets.Actor;
-import assets.Asset;
-import assets.NonActor;
+import assets.*;
 
 public class GameBoard {
     private int rows;
@@ -124,17 +122,19 @@ public class GameBoard {
     }
 
     public void displayBoard() {
+        String RESET = "\u001B[0m";
+        String herb = 	"\uD83C\uDF3F";
         for (int i = 0; i < this.getRows(); i++) {
             for (int j = 0; j < this.columns; j++) {
                 if (this.board[i][j] == null) {
-                    System.out.print("~ ");
+                    System.out.print(herb);
                 } else {
-                    System.out.print(this.board[i][j] + " ");
+                    System.out.print(this.board[i][j] );
                 }
             }
             System.out.println();
         }
-        System.out.println();
+        System.out.println(RESET);
     }
 
     // This method will allow for placement of actor items

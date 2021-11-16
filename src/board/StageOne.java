@@ -1,6 +1,9 @@
 package board;
 
-import assets.*;
+import assets.Asset;
+import assets.Mountain;
+import assets.Tree;
+import assets.Water;
 
 public class StageOne extends GameBoard{
     private int rows;
@@ -58,7 +61,7 @@ public class StageOne extends GameBoard{
                 if (this.board[i][j] == null) {
                     System.out.print(herb);
                 } else {
-                    System.out.print(this.board[i][j] + " ");
+                    System.out.print(this.board[i][j]);
                 }
             }
             System.out.println();

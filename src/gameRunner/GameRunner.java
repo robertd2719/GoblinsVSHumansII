@@ -4,7 +4,6 @@ import assets.Actor;
 import assets.Chest;
 import assets.Goblin;
 import assets.Human;
-import board.GameBoard;
 import item.LifeRing;
 import item.Shield;
 import item.Sword;
@@ -20,6 +19,7 @@ import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+import board.*;
 
 public class GameRunner {
     public static void main(String[] args) {
@@ -64,16 +64,14 @@ public class GameRunner {
     }
 
     public static Actor runStageOne(Human human) {
-        GameBoard board = new GameBoard(15, 20);
-        human = (Human) MainLoop(human, board);
-
+        GameBoard stageOne = new GameBoard();
+        human = (Human) MainLoop(human, stageOne);
         return human;
     }
 
     public static Actor runBossStage(Human human) {
-        GameBoard board2 = new GameBoard(15, 29);
-        human = (Human) MainLoop(human, board2);
-
+        GameBoard stageTwo = new GameBoard();
+        human = (Human) MainLoop(human, stageTwo);
         return human;
     }
 
@@ -136,6 +134,7 @@ public class GameRunner {
                     pause(5);
                     System.out.println("**************************************");
                     System.out.println("......Moving on to next stage.........");
+                    stageTwo.displayBoard();
                     return human;
                     // if player wins; they will proceed to the next map.
                     // if this is the last encounter, player wins.

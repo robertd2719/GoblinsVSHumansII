@@ -39,17 +39,14 @@ public class Colortester{
         LootChest loot = new LootChest();
         Water water = new Water();
 
-<<<<<<< HEAD
         GameBoard StageTwo = new GameBoard(10,15);
-=======
         GameBoard level2 = new GameBoard(10,15);
->>>>>>> master
+
         Volcano volcano = new Volcano();
         Castle castle = new Castle();
 
 
 
-<<<<<<< HEAD
         StageTwo.placeItem(volcano,9,13);
         StageTwo.placeItem(volcano,8,14);
         StageTwo.placeItem(volcano,9,14);
@@ -70,7 +67,7 @@ public class Colortester{
         StageTwo.placeItem(loot,0,1);
         StageTwo.placeItem(castle,5, 14);
         displayBoard(StageTwo,colorPicks,bgColor );
-=======
+
         level2.placeItem(volcano,9,13);
         level2.placeItem(volcano,8,14);
         level2.placeItem(volcano,9,14);
@@ -91,13 +88,11 @@ public class Colortester{
         level2.placeItem(loot,0,1);
         level2.placeItem(castle,5, 14);
         displayBoard(level2,colorPicks,bgColor );
->>>>>>> master
 
 
 
 
 
-<<<<<<< HEAD
 //        GameBoard StageOne = new GameBoard(15,20);
 //        StageOne.placeActor(goblin,9,1);
 //        StageOne.placeActor(human,6,4);
@@ -142,7 +137,6 @@ public class Colortester{
 //        StageOne.placeItem(tree,12,11);
 //        StageOne.placeItem(tree,13,12);
 //        displayBoard(StageOne,colorPicks,bgColor);
-=======
 //        GameBoard level1 = new GameBoard(15,20);
 //        level1.placeActor(goblin,9,1);
 //        level1.placeActor(human,6,4);
@@ -187,7 +181,6 @@ public class Colortester{
 //        level1.placeItem(tree,12,11);
 //        level1.placeItem(tree,13,12);
 //        displayBoard(level1,colorPicks,bgColor);
->>>>>>> master
 
 //    GameBoard level3 = new GameBoard(7,20);
 //    Tile tile = new Tile();

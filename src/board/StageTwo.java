@@ -1,15 +1,12 @@
-package board;
+import assets.Asset;
+import assets.Tile;
+import board.GameBoard;
 
-import assets.*;
-
-
-public class BossStage extends GameBoard {
+public  class StageTwo extends GameBoard {
     private int rows;
     private int columns;
 
-
-
-    public BossStage(){
+    public StageTwo(){
         super(7,20);
         Asset[][] board = new Asset [rows][columns];
         this.placeItem(new Tile(),0,0);
@@ -163,7 +160,7 @@ public class BossStage extends GameBoard {
                 if (this.board[i][j] == null) {
                     System.out.print(herb);
                 } else {
-                    System.out.print(this.board[i][j] + " ");
+                    System.out.print(this.board[i][j]);
                 }
             }
             System.out.println();
