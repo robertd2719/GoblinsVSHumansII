@@ -35,7 +35,7 @@ public class GameRunner {
             // Human did not survive
             endGameSequence(human, END_GAME.LOSE);
         } else {
-            System.out.println("Current Score: "+human.getScore());
+            System.out.println("\t\tCurrent Score: " + human.getScore());
             human = (Human) runBossStage(human);
             // Did player survive the boss battle?
             if (human.getHealth() <= 0) {
@@ -102,7 +102,7 @@ public class GameRunner {
         while (true) {
             displayOptions();
             var reply = getPlayerInput();
-            System.out.println("player chose: " + reply);
+            System.out.println("\t\tPlayer chooses: " + reply);
             if (Integer.parseInt(reply) == 1) {
                 board.displayBoard();
                 playerMoveSelection();

@@ -188,7 +188,8 @@ public abstract class Actor extends Asset {
     }
 
     public void pickUpItem(Item item) {
-        System.out.println(this.getName() + " picks up: " + item.getName());
+        System.out.println("\t\t\t" + this.getName() + " picks up: " + item.getName());
+        System.out.println();
         this.itemList.add(item);
     }
 

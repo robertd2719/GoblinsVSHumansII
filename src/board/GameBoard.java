@@ -143,6 +143,7 @@ public class GameBoard {
 
     public void displayBoard() {
         for (int i = 0; i < this.getRows(); i++) {
+            System.out.print("\t\t");
             for (int j = 0; j < this.columns; j++) {
                 if (this.board[i][j] == null) {
                     System.out.print("~ ");
