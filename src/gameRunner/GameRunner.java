@@ -74,7 +74,7 @@ public class GameRunner {
     }
 
     public static Actor runBossStage(Human human) {
-        GameBoard board2 = new GameBoard(15, 29);
+        GameBoard board2 = new GameBoard(15, 20);
         human = (Human) MainLoop(human, board2);
 
         return human;
