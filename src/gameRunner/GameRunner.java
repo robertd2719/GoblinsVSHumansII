@@ -131,9 +131,9 @@ public class GameRunner {
                     board.displayBoard();
                     human.setScore(human.getScore() + 15);
                     pause(1);
-                    System.out.println("\t\t\t**************************************");
-                    System.out.println("\t\t\t......Moving on to next stage.........");
-                    System.out.println("\t\t\t**************************************");
+                    System.out.println("\t\t**************************************");
+                    System.out.println("\t\t......Moving on to next stage.........");
+                    System.out.println("\t\t**************************************");
                     pause(2);
                     return human;
                     // if player wins; they will proceed to the next map.
@@ -236,7 +236,7 @@ public class GameRunner {
         List<String> outArray = readFile(path);
         var outArray2 = outArray.stream().map(e -> Stream.of(e.split(" ")).collect(Collectors.toList()))
                 .collect(Collectors.toCollection(ArrayList::new));
-        outArray2.stream().sorted((a, b) -> Integer.parseInt(b.get(1)) - Integer.parseInt(a.get(1))).forEach(e -> System.out.print("\t" + e + "\n"));
+        outArray2.stream().sorted((a, b) -> Integer.parseInt(b.get(1)) - Integer.parseInt(a.get(1))).forEach(e -> System.out.print("\t\t\t" + e + "\n"));
     }
 
     // If the file does not exist we will attempt to create it here
