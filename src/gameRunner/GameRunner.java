@@ -212,8 +212,8 @@ public class GameRunner {
 
         switch (status) {
             case WIN: {
-                System.out.println("\n\t\t\tCONGRATULATIONS WINNER!!");
-                System.out.println("\n\t\t\tPlayer Score: " + human.getScore());
+                System.out.println("\n\t\t\t\tCONGRATULATIONS WINNER!!");
+                System.out.println("\t\t\t\tPlayer Score: " + human.getScore());
                 readWriteHighScores(human);
                 break;
             }
