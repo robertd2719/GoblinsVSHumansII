@@ -19,3 +19,4 @@ Robert 15
 Jimmy 0
 Robert 0
 Chevy 30
+Terry 0

@@ -21,9 +21,6 @@ public class Chest extends NonActor{
             System.out.println(item.getName());
         }
 
-
-
-
     }
     public Item getItem(){
          return this.ChestInventory.get(0);
